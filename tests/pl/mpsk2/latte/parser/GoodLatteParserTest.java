@@ -5,6 +5,8 @@ public class GoodLatteParserTest extends LatteParserTestBase {
         super("good");
     }
 
+    public void testArray001() { doTest(); }
+    public void testArray002() { doTest(); }
     public void testComments() { doTest(); }
     public void testCore001() { doTest(); }
     public void testCore002() { doTest(); }
@@ -28,9 +30,15 @@ public class GoodLatteParserTest extends LatteParserTestBase {
     public void testCore020() { doTest(); }
     public void testCore021() { doTest(); }
     public void testCore022() { doTest(); }
+    public void testCounter() { doTest(); }
     public void testEmpty() { doTest(); }
     public void testHelloWorld() { doTest(); }
+    public void testLinked() { doTest(); }
+    public void testList() { doTest(); }
+    public void testPoints() { doTest(); }
     public void testPrintTo10() { doTest(); }
+    public void testQueue() { doTest(); }
     public void testReturn() { doTest(); }
+    public void testShapes() { doTest(); }
     public void testStrong() { doTest(); }
 }
