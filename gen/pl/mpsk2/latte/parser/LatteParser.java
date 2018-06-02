@@ -38,6 +38,9 @@ public class LatteParser implements PsiParser, LightPsiParser {
     else if (t == BLOCK) {
       r = Block(b, 0);
     }
+    else if (t == CLS_DEF) {
+      r = ClsDef(b, 0);
+    }
     else if (t == COND_ELSE_STMT) {
       r = CondElseStmt(b, 0);
     }
@@ -220,6 +223,21 @@ public class LatteParser implements PsiParser, LightPsiParser {
       if (!empty_element_parsed_guard_(b, "Block_1", c)) break;
     }
     return true;
+  }
+
+  /* ********************************************************** */
+  // CLS Ident LBRACE RBRACE
+  public static boolean ClsDef(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ClsDef")) return false;
+    if (!nextTokenIs(b, CLS)) return false;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, CLS_DEF, null);
+    r = consumeToken(b, CLS);
+    p = r; // pin = 1
+    r = r && report_error_(b, Ident(b, l + 1));
+    r = p && report_error_(b, consumeTokens(b, -1, LBRACE, RBRACE)) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   /* ********************************************************** */
@@ -546,12 +564,14 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // FnDef
+  // ClsDef 
+  //     | FnDef
   public static boolean TopDef(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "TopDef")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, TOP_DEF, "<top def>");
-    r = FnDef(b, l + 1);
+    r = ClsDef(b, l + 1);
+    if (!r) r = FnDef(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }

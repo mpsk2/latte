@@ -72,6 +72,7 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   "for"                { return FOR; }
   "true"               { return TRUE; }
   "false"              { return FALSE; }
+  "class"              { return CLS; }
 
   {SPACE}              { return SPACE; }
   {LINE_COMMENT}       { return LINE_COMMENT; }

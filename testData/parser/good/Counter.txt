@@ -79,7 +79,7 @@ Simple File
     PsiElement(number)('0')
     PsiElement(;)(';')
     PsiElement(})('}')
-    PsiElement(id)('class')
+    PsiElement(class)('class')
     PsiElement(id)('Counter')
     PsiElement({)('{')
     PsiElement(int)('int')

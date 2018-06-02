@@ -10,14 +10,14 @@ import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
 import pl.mpsk2.latte.psi.*;
 
-public class LatteTopDefImpl extends LatteCompositeElementImpl implements LatteTopDef {
+public class LatteClsDefImpl extends LatteCompositeElementImpl implements LatteClsDef {
 
-  public LatteTopDefImpl(ASTNode node) {
+  public LatteClsDefImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull LatteVisitor visitor) {
-    visitor.visitTopDef(this);
+    visitor.visitClsDef(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -27,14 +27,26 @@ public class LatteTopDefImpl extends LatteCompositeElementImpl implements LatteT
 
   @Override
   @Nullable
-  public LatteClsDef getClsDef() {
-    return findChildByClass(LatteClsDef.class);
+  public LatteIdent getIdent() {
+    return findChildByClass(LatteIdent.class);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getCls() {
+    return findNotNullChildByType(CLS);
   }
 
   @Override
   @Nullable
-  public LatteFnDef getFnDef() {
-    return findChildByClass(LatteFnDef.class);
+  public PsiElement getLbrace() {
+    return findChildByType(LBRACE);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getRbrace() {
+    return findChildByType(RBRACE);
   }
 
 }

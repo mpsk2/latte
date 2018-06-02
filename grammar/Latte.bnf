@@ -59,6 +59,8 @@
         TRUE      = "true"
         FALSE     = "false"
 
+        CLS       = "class"
+
         space     = 'regexp:\s+'
         line_comment   = 'regexp:(//|#).*'
         block_comment = 'regexp:/\*(.|\n)*\*/'
@@ -83,7 +85,8 @@
 Program ::= TopDef*
 
 TopDef ::=
-    FnDef
+      ClsDef
+    | FnDef
 
 FnDef ::= Type Ident LPAREN ArgVec? RPAREN Block
 
@@ -158,3 +161,7 @@ private MulOp ::= MUL | DIV | MOD
 private CmpOp ::= LT | LEQ | GT | GEQ | EQ | NEQ
 
 Ident ::= id
+
+// Extension structs
+
+ClsDef ::= CLS Ident LBRACE RBRACE {pin=1}

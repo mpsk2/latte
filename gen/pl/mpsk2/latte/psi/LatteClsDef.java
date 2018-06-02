@@ -5,12 +5,18 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface LatteTopDef extends PsiElement {
+public interface LatteClsDef extends PsiElement {
 
   @Nullable
-  LatteClsDef getClsDef();
+  LatteIdent getIdent();
+
+  @NotNull
+  PsiElement getCls();
 
   @Nullable
-  LatteFnDef getFnDef();
+  PsiElement getLbrace();
+
+  @Nullable
+  PsiElement getRbrace();
 
 }

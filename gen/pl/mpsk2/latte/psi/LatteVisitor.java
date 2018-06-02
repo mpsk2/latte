@@ -45,6 +45,10 @@ public class LatteVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitClsDef(@NotNull LatteClsDef o) {
+    visitPsiElement(o);
+  }
+
   public void visitCmpExpr(@NotNull LatteCmpExpr o) {
     visitBinaryExpr(o);
   }

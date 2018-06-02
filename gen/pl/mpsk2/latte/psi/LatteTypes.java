@@ -20,6 +20,7 @@ public interface LatteTypes {
   IElementType ASS_STMT = new LatteElementType("ASS_STMT");
   IElementType BLOCK = new LatteElementType("BLOCK");
   IElementType B_STMT = new LatteElementType("B_STMT");
+  IElementType CLS_DEF = new LatteElementType("CLS_DEF");
   IElementType CMP_EXPR = new LatteElementType("CMP_EXPR");
   IElementType COND_ELSE_STMT = new LatteElementType("COND_ELSE_STMT");
   IElementType DECL_STMT = new LatteElementType("DECL_STMT");
@@ -52,6 +53,7 @@ public interface LatteTypes {
   IElementType ASS = new LatteTokenType("=");
   IElementType BLOCK_COMMENT = new LatteTokenType("block_comment");
   IElementType BOOL = new LatteTokenType("boolean");
+  IElementType CLS = new LatteTokenType("class");
   IElementType COMMA = new LatteTokenType(",");
   IElementType DECR = new LatteTokenType("--");
   IElementType DIV = new LatteTokenType("/");
@@ -115,6 +117,9 @@ public interface LatteTypes {
       }
       else if (type == B_STMT) {
         return new LatteBStmtImpl(node);
+      }
+      else if (type == CLS_DEF) {
+        return new LatteClsDefImpl(node);
       }
       else if (type == CMP_EXPR) {
         return new LatteCmpExprImpl(node);
