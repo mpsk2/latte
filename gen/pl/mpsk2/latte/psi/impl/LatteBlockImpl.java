@@ -8,11 +8,10 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import pl.mpsk2.latte.psi.*;
 import pl.mpsk2.latte.psi.stmt.LatteStmt;
 
-public class LatteBlockImpl extends ASTWrapperPsiElement implements LatteBlock {
+public class LatteBlockImpl extends LatteCompositeElementImpl implements LatteBlock {
 
   public LatteBlockImpl(ASTNode node) {
     super(node);
@@ -40,9 +39,9 @@ public class LatteBlockImpl extends ASTWrapperPsiElement implements LatteBlock {
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getRbrace() {
-    return findNotNullChildByType(RBRACE);
+    return findChildByType(RBRACE);
   }
 
 }

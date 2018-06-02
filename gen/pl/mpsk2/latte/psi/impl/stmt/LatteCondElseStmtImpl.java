@@ -29,9 +29,9 @@ public class LatteCondElseStmtImpl extends LatteStmtImpl implements LatteCondEls
   }
 
   @Override
-  @NotNull
+  @Nullable
   public LatteExpr getExpr() {
-    return findNotNullChildByClass(LatteExpr.class);
+    return findChildByClass(LatteExpr.class);
   }
 
   @Override
@@ -41,9 +41,9 @@ public class LatteCondElseStmtImpl extends LatteStmtImpl implements LatteCondEls
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getElse() {
-    return findNotNullChildByType(ELSE);
+    return findChildByType(ELSE);
   }
 
   @Override
@@ -53,15 +53,15 @@ public class LatteCondElseStmtImpl extends LatteStmtImpl implements LatteCondEls
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getLparen() {
-    return findNotNullChildByType(LPAREN);
+    return findChildByType(LPAREN);
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getRparen() {
-    return findNotNullChildByType(RPAREN);
+    return findChildByType(RPAREN);
   }
 
 }

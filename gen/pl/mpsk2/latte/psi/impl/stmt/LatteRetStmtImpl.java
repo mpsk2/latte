@@ -29,9 +29,9 @@ public class LatteRetStmtImpl extends LatteStmtImpl implements LatteRetStmt {
   }
 
   @Override
-  @NotNull
+  @Nullable
   public LatteExpr getExpr() {
-    return findNotNullChildByClass(LatteExpr.class);
+    return findChildByClass(LatteExpr.class);
   }
 
   @Override
@@ -41,9 +41,9 @@ public class LatteRetStmtImpl extends LatteStmtImpl implements LatteRetStmt {
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getSem() {
-    return findNotNullChildByType(SEM);
+    return findChildByType(SEM);
   }
 
 }

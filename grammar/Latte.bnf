@@ -1,6 +1,8 @@
 {
     parserClass = 'pl.mpsk2.latte.parser.LatteParser'
 
+    extends = 'pl.mpsk2.latte.psi.impl.LatteCompositeElementImpl'
+
     psiClassPrefix = 'Latte'
     psiImplClassSuffix = 'Impl'
     psiPackage = 'pl.mpsk2.latte.psi'
@@ -50,8 +52,8 @@
 
         RETURN    = "return"
         IF        = "if"
-        ELSE      = "else"
-        WHILE     = "whiel"
+        ELSE      = 'else'
+        WHILE     = "while"
         FOR       = "for"
 
         TRUE      = "true"
@@ -87,7 +89,7 @@ FnDef ::= Type Ident LPAREN ArgVec? RPAREN Block
 Arg ::= Type Ident
 ArgVec ::= Arg (COMMA Arg)*
 
-Block ::= LBRACE Stmt* RBRACE
+Block ::= LBRACE Stmt* RBRACE {pin=1}
 
 Stmt ::=
       EmptyStmt
@@ -98,23 +100,21 @@ Stmt ::=
     | DecrStmt
     | RetStmt
     | VRetStmt
-    | CondStmt
     | CondElseStmt
     | WhileStmt
     | ExprStmt
 
 EmptyStmt ::= SEM
 BStmt ::= Block
-DeclStmt ::= Type ItemVec SEM
-AssStmt ::= Ident ASS Expr SEM
-IncrStmt ::= Ident INCR SEM
-DecrStmt ::= Ident DECR SEM
-RetStmt ::= RETURN Expr SEM
+DeclStmt ::= Type ItemVec SEM {pin=1}
+AssStmt ::= Ident ASS Expr SEM {pin=2}
+IncrStmt ::= Ident INCR SEM {pin=2}
+DecrStmt ::= Ident DECR SEM {pin=2}
+RetStmt ::= RETURN Expr? SEM {pin=1}
 VRetStmt ::= RETURN SEM
-CondStmt ::= IF LPAREN Expr RPAREN Stmt
-CondElseStmt ::= IF LPAREN Expr RPAREN Stmt ELSE Stmt
-WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt
-ExprStmt ::= Expr SEM
+CondElseStmt ::= IF LPAREN Expr RPAREN Stmt (ELSE Stmt)? {pin=1}
+WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt {pin=1}
+ExprStmt ::= Expr SEM {pin=1}
 
 Type ::= INT | STR | BOOL | VOID
 
@@ -130,6 +130,7 @@ Expr ::=
     | NotExpr
     | NegExpr
     | AppExpr
+    | ParenExpr
     | VarExpr
     | LitExpr
 
@@ -145,6 +146,7 @@ NotExpr ::= NOT Expr {pin=1}
 NegExpr ::= SUB Expr {pin=1}
 AppExpr ::= Ident LPAREN ExprVec? RPAREN
 CmpExpr ::= Expr CmpOp Expr
+ParenExpr ::= LPAREN Expr RPAREN {pin=1}
 VarExpr ::= Ident
 LitExpr ::= number | string | TRUE | FALSE
 

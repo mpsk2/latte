@@ -9,13 +9,13 @@ import pl.mpsk2.latte.psi.LatteType;
 
 public interface LatteDeclStmt extends LatteStmt {
 
-  @NotNull
+  @Nullable
   LatteItemVec getItemVec();
 
   @NotNull
   LatteType getType();
 
-  @NotNull
+  @Nullable
   PsiElement getSem();
 
 }

@@ -29,27 +29,27 @@ public class LatteWhileStmtImpl extends LatteStmtImpl implements LatteWhileStmt 
   }
 
   @Override
-  @NotNull
+  @Nullable
   public LatteExpr getExpr() {
-    return findNotNullChildByClass(LatteExpr.class);
+    return findChildByClass(LatteExpr.class);
   }
 
   @Override
-  @NotNull
+  @Nullable
   public LatteStmt getStmt() {
-    return findNotNullChildByClass(LatteStmt.class);
+    return findChildByClass(LatteStmt.class);
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getLparen() {
-    return findNotNullChildByType(LPAREN);
+    return findChildByType(LPAREN);
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getRparen() {
-    return findNotNullChildByType(RPAREN);
+    return findChildByType(RPAREN);
   }
 
   @Override

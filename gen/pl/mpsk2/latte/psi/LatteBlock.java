@@ -14,7 +14,7 @@ public interface LatteBlock extends PsiElement {
   @NotNull
   PsiElement getLbrace();
 
-  @NotNull
+  @Nullable
   PsiElement getRbrace();
 
 }

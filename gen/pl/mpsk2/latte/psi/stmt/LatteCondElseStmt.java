@@ -8,22 +8,22 @@ import pl.mpsk2.latte.psi.expr.LatteExpr;
 
 public interface LatteCondElseStmt extends LatteStmt {
 
-  @NotNull
+  @Nullable
   LatteExpr getExpr();
 
   @NotNull
   List<LatteStmt> getStmtList();
 
-  @NotNull
+  @Nullable
   PsiElement getElse();
 
   @NotNull
   PsiElement getIf();
 
-  @NotNull
+  @Nullable
   PsiElement getLparen();
 
-  @NotNull
+  @Nullable
   PsiElement getRparen();
 
 }

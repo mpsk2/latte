@@ -5,5 +5,9 @@ public class GoodLatteParserTest extends LatteParserTestBase {
         super("good");
     }
 
-    public void testEmpty() { doTest(true); }
+    public void testEmpty() { doTest(); }
+    public void testHelloWorld() { doTest(); }
+    public void testPrintTo10() { doTest(); }
+    public void testReturn() { doTest(); }
+    public void testStrong() { doTest(); }
 }

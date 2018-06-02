@@ -8,10 +8,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import pl.mpsk2.latte.psi.*;
 
-public class LatteTopDefImpl extends ASTWrapperPsiElement implements LatteTopDef {
+public class LatteTopDefImpl extends LatteCompositeElementImpl implements LatteTopDef {
 
   public LatteTopDefImpl(ASTNode node) {
     super(node);

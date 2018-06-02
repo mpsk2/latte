@@ -67,7 +67,7 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   "return"           { return RETURN; }
   "if"               { return IF; }
   "else"             { return ELSE; }
-  "whiel"            { return WHILE; }
+  "while"            { return WHILE; }
   "for"              { return FOR; }
   "true"             { return TRUE; }
   "false"            { return FALSE; }

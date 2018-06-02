@@ -22,7 +22,6 @@ public interface LatteTypes {
   IElementType B_STMT = new LatteElementType("B_STMT");
   IElementType CMP_EXPR = new LatteElementType("CMP_EXPR");
   IElementType COND_ELSE_STMT = new LatteElementType("COND_ELSE_STMT");
-  IElementType COND_STMT = new LatteElementType("COND_STMT");
   IElementType DECL_STMT = new LatteElementType("DECL_STMT");
   IElementType DECR_STMT = new LatteElementType("DECR_STMT");
   IElementType EMPTY_STMT = new LatteElementType("EMPTY_STMT");
@@ -39,6 +38,7 @@ public interface LatteTypes {
   IElementType NEG_EXPR = new LatteElementType("NEG_EXPR");
   IElementType NOT_EXPR = new LatteElementType("NOT_EXPR");
   IElementType OR_EXPR = new LatteElementType("OR_EXPR");
+  IElementType PAREN_EXPR = new LatteElementType("PAREN_EXPR");
   IElementType RET_STMT = new LatteElementType("RET_STMT");
   IElementType STMT = new LatteElementType("STMT");
   IElementType TOP_DEF = new LatteElementType("TOP_DEF");
@@ -86,7 +86,7 @@ public interface LatteTypes {
   IElementType SUB = new LatteTokenType("-");
   IElementType TRUE = new LatteTokenType("true");
   IElementType VOID = new LatteTokenType("void");
-  IElementType WHILE = new LatteTokenType("whiel");
+  IElementType WHILE = new LatteTokenType("while");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
@@ -120,9 +120,6 @@ public interface LatteTypes {
       }
       else if (type == COND_ELSE_STMT) {
         return new LatteCondElseStmtImpl(node);
-      }
-      else if (type == COND_STMT) {
-        return new LatteCondStmtImpl(node);
       }
       else if (type == DECL_STMT) {
         return new LatteDeclStmtImpl(node);
@@ -168,6 +165,9 @@ public interface LatteTypes {
       }
       else if (type == OR_EXPR) {
         return new LatteOrExprImpl(node);
+      }
+      else if (type == PAREN_EXPR) {
+        return new LatteParenExprImpl(node);
       }
       else if (type == RET_STMT) {
         return new LatteRetStmtImpl(node);

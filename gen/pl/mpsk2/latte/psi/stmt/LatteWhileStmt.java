@@ -8,16 +8,16 @@ import pl.mpsk2.latte.psi.expr.LatteExpr;
 
 public interface LatteWhileStmt extends LatteStmt {
 
-  @NotNull
+  @Nullable
   LatteExpr getExpr();
 
-  @NotNull
+  @Nullable
   LatteStmt getStmt();
 
-  @NotNull
+  @Nullable
   PsiElement getLparen();
 
-  @NotNull
+  @Nullable
   PsiElement getRparen();
 
   @NotNull

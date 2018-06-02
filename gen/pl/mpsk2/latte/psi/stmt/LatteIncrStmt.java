@@ -14,7 +14,7 @@ public interface LatteIncrStmt extends LatteStmt {
   @NotNull
   PsiElement getIncr();
 
-  @NotNull
+  @Nullable
   PsiElement getSem();
 
 }

@@ -8,10 +8,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import pl.mpsk2.latte.psi.*;
 
-public class LatteItemVecImpl extends ASTWrapperPsiElement implements LatteItemVec {
+public class LatteItemVecImpl extends LatteCompositeElementImpl implements LatteItemVec {
 
   public LatteItemVecImpl(ASTNode node) {
     super(node);

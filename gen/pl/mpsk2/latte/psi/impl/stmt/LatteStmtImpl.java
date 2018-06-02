@@ -8,12 +8,12 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import pl.mpsk2.latte.psi.impl.LatteCompositeElementImpl;
 import pl.mpsk2.latte.psi.stmt.*;
 import pl.mpsk2.latte.psi.LatteVisitor;
 import pl.mpsk2.latte.psi.impl.LattePsiImplUtil;
 
-public abstract class LatteStmtImpl extends ASTWrapperPsiElement implements LatteStmt {
+public abstract class LatteStmtImpl extends LatteCompositeElementImpl implements LatteStmt {
 
   public LatteStmtImpl(ASTNode node) {
     super(node);

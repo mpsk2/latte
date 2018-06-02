@@ -1,0 +1,28 @@
+Simple File
+  PsiComment(comment)('// Hello world')
+  TOP_DEF
+    FN_DEF
+      TYPE
+        PsiElement(int)('int')
+      IDENT
+        PsiElement(id)('main')
+      PsiElement(()('(')
+      PsiElement())(')')
+      BLOCK
+        PsiElement({)('{')
+        EXPR_STMT
+          APP_EXPR
+            IDENT
+              PsiElement(id)('printString')
+            PsiElement(()('(')
+            EXPR_VEC
+              LIT_EXPR
+                PsiElement(string)('"hello world"')
+            PsiElement())(')')
+          PsiElement(;)(';')
+        RET_STMT
+          PsiElement(return)('return')
+          LIT_EXPR
+            PsiElement(number)('0')
+          PsiElement(;)(';')
+        PsiElement(})('}')

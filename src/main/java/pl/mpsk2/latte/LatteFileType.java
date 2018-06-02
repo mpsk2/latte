@@ -22,7 +22,7 @@ public class LatteFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getDescription() {
-        return "Latte file";
+        return "Latte language file";
     }
 
     @Nullable
@@ -34,7 +34,7 @@ public class LatteFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getDefaultExtension() {
-        return "latte";
+        return "lat";
     }
 
 }

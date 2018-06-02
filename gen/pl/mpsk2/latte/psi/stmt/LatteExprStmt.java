@@ -11,7 +11,7 @@ public interface LatteExprStmt extends LatteStmt {
   @NotNull
   LatteExpr getExpr();
 
-  @NotNull
+  @Nullable
   PsiElement getSem();
 
 }

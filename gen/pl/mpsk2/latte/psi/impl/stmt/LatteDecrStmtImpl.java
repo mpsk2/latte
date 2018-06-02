@@ -41,9 +41,9 @@ public class LatteDecrStmtImpl extends LatteStmtImpl implements LatteDecrStmt {
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getSem() {
-    return findNotNullChildByType(SEM);
+    return findChildByType(SEM);
   }
 
 }
