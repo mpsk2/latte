@@ -44,6 +44,12 @@ public class LatteParser implements PsiParser, LightPsiParser {
     else if (t == CLS_ELEM) {
       r = ClsElem(b, 0);
     }
+    else if (t == CLS_FIELD) {
+      r = ClsField(b, 0);
+    }
+    else if (t == CLS_METHOD) {
+      r = ClsMethod(b, 0);
+    }
     else if (t == COND_ELSE_STMT) {
       r = CondElseStmt(b, 0);
     }
@@ -291,14 +297,37 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // Type Ident SEM
+  // ClsField | ClsMethod
   public static boolean ClsElem(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ClsElem")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, CLS_ELEM, "<cls elem>");
+    r = ClsField(b, l + 1);
+    if (!r) r = ClsMethod(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // Type Ident SEM
+  public static boolean ClsField(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ClsField")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, CLS_FIELD, "<cls field>");
     r = Type(b, l + 1);
     r = r && Ident(b, l + 1);
     r = r && consumeToken(b, SEM);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // FnDef
+  public static boolean ClsMethod(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ClsMethod")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, CLS_METHOD, "<cls method>");
+    r = FnDef(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }

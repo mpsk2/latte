@@ -5,12 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface LatteClsElem extends PsiElement {
+public interface LatteClsMethod extends PsiElement {
 
-  @Nullable
-  LatteClsField getClsField();
-
-  @Nullable
-  LatteClsMethod getClsMethod();
+  @NotNull
+  LatteFnDef getFnDef();
 
 }

@@ -24,6 +24,8 @@ public interface LatteTypes {
   IElementType CAST_EXPR = new LatteElementType("CAST_EXPR");
   IElementType CLS_DEF = new LatteElementType("CLS_DEF");
   IElementType CLS_ELEM = new LatteElementType("CLS_ELEM");
+  IElementType CLS_FIELD = new LatteElementType("CLS_FIELD");
+  IElementType CLS_METHOD = new LatteElementType("CLS_METHOD");
   IElementType CMP_EXPR = new LatteElementType("CMP_EXPR");
   IElementType COND_ELSE_STMT = new LatteElementType("COND_ELSE_STMT");
   IElementType DECL_STMT = new LatteElementType("DECL_STMT");
@@ -136,6 +138,12 @@ public interface LatteTypes {
       }
       else if (type == CLS_ELEM) {
         return new LatteClsElemImpl(node);
+      }
+      else if (type == CLS_FIELD) {
+        return new LatteClsFieldImpl(node);
+      }
+      else if (type == CLS_METHOD) {
+        return new LatteClsMethodImpl(node);
       }
       else if (type == CMP_EXPR) {
         return new LatteCmpExprImpl(node);

@@ -6,16 +6,18 @@ Simple File
         PsiElement(id)('list')
       PsiElement({)('{')
       CLS_ELEM
-        TYPE
-          PsiElement(int)('int')
-        IDENT
-          PsiElement(id)('elem')
-        PsiElement(;)(';')
-      CLS_ELEM
-        TYPE
+        CLS_FIELD
+          TYPE
+            PsiElement(int)('int')
           IDENT
-            PsiElement(id)('list')
-        IDENT
-          PsiElement(id)('next')
-        PsiElement(;)(';')
+            PsiElement(id)('elem')
+          PsiElement(;)(';')
+      CLS_ELEM
+        CLS_FIELD
+          TYPE
+            IDENT
+              PsiElement(id)('list')
+          IDENT
+            PsiElement(id)('next')
+          PsiElement(;)(';')
       PsiElement(})('}')

@@ -174,4 +174,6 @@ Ident ::= id
 // Extension structs
 
 ClsDef ::= CLS Ident LBRACE ClsElem* RBRACE {pin=1}
-ClsElem ::= Type Ident SEM
+ClsElem ::= ClsField | ClsMethod
+ClsField ::= Type Ident SEM
+ClsMethod ::= FnDef

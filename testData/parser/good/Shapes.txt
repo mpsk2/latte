@@ -6,236 +6,347 @@ Simple File
         PsiElement(id)('Node')
       PsiElement({)('{')
       CLS_ELEM
-        TYPE
-          IDENT
-            PsiElement(id)('Shape')
-        IDENT
-          PsiElement(id)('elem')
-        PsiElement(;)(';')
-      CLS_ELEM
-        TYPE
-          IDENT
-            PsiElement(id)('Node')
-        IDENT
-          PsiElement(id)('next')
-        PsiElement(;)(';')
-    PsiErrorElement:boolean, int, string, void or '}' expected, got 'void'
-      <empty list>
-  TOP_DEF
-    FN_DEF
-      TYPE
-        PsiElement(void)('void')
-      IDENT
-        PsiElement(id)('setElem')
-      PsiElement(()('(')
-      ARG_VEC
-        ARG
+        CLS_FIELD
           TYPE
             IDENT
               PsiElement(id)('Shape')
           IDENT
-            PsiElement(id)('c')
-      PsiElement())(')')
-      BLOCK
-        PsiElement({)('{')
-        ASS_STMT
-          IDENT
             PsiElement(id)('elem')
-          PsiElement(=)('=')
-          VAR_EXPR
-            IDENT
-              PsiElement(id)('c')
           PsiElement(;)(';')
-        PsiElement(})('}')
-  TOP_DEF
-    FN_DEF
-      TYPE
-        PsiElement(void)('void')
-      IDENT
-        PsiElement(id)('setNext')
-      PsiElement(()('(')
-      ARG_VEC
-        ARG
+      CLS_ELEM
+        CLS_FIELD
           TYPE
             IDENT
               PsiElement(id)('Node')
           IDENT
-            PsiElement(id)('n')
-      PsiElement())(')')
-      BLOCK
-        PsiElement({)('{')
-        ASS_STMT
-          IDENT
             PsiElement(id)('next')
-          PsiElement(=)('=')
-          VAR_EXPR
-            IDENT
-              PsiElement(id)('n')
           PsiElement(;)(';')
-        PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              PsiElement(void)('void')
+            IDENT
+              PsiElement(id)('setElem')
+            PsiElement(()('(')
+            ARG_VEC
+              ARG
+                TYPE
+                  IDENT
+                    PsiElement(id)('Shape')
+                IDENT
+                  PsiElement(id)('c')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              ASS_STMT
+                IDENT
+                  PsiElement(id)('elem')
+                PsiElement(=)('=')
+                VAR_EXPR
+                  IDENT
+                    PsiElement(id)('c')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              PsiElement(void)('void')
+            IDENT
+              PsiElement(id)('setNext')
+            PsiElement(()('(')
+            ARG_VEC
+              ARG
+                TYPE
+                  IDENT
+                    PsiElement(id)('Node')
+                IDENT
+                  PsiElement(id)('n')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              ASS_STMT
+                IDENT
+                  PsiElement(id)('next')
+                PsiElement(=)('=')
+                VAR_EXPR
+                  IDENT
+                    PsiElement(id)('n')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              IDENT
+                PsiElement(id)('Shape')
+            IDENT
+              PsiElement(id)('getElem')
+            PsiElement(()('(')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              RET_STMT
+                PsiElement(return)('return')
+                VAR_EXPR
+                  IDENT
+                    PsiElement(id)('elem')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              IDENT
+                PsiElement(id)('Node')
+            IDENT
+              PsiElement(id)('getNext')
+            PsiElement(()('(')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              RET_STMT
+                PsiElement(return)('return')
+                VAR_EXPR
+                  IDENT
+                    PsiElement(id)('next')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      PsiElement(})('}')
   TOP_DEF
-    FN_DEF
-      TYPE
-        IDENT
-          PsiElement(id)('Shape')
+    CLS_DEF
+      PsiElement(class)('class')
       IDENT
-        PsiElement(id)('getElem')
-      PsiElement(()('(')
-      PsiElement())(')')
-      BLOCK
-        PsiElement({)('{')
-        RET_STMT
-          PsiElement(return)('return')
-          VAR_EXPR
+        PsiElement(id)('Stack')
+      PsiElement({)('{')
+      CLS_ELEM
+        CLS_FIELD
+          TYPE
             IDENT
-              PsiElement(id)('elem')
+              PsiElement(id)('Node')
+          IDENT
+            PsiElement(id)('head')
           PsiElement(;)(';')
-        PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              PsiElement(void)('void')
+            IDENT
+              PsiElement(id)('push')
+            PsiElement(()('(')
+            ARG_VEC
+              ARG
+                TYPE
+                  IDENT
+                    PsiElement(id)('Shape')
+                IDENT
+                  PsiElement(id)('c')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              DECL_STMT
+                TYPE
+                  IDENT
+                    PsiElement(id)('Node')
+                ITEM_VEC
+                  ITEM
+                    IDENT
+                      PsiElement(id)('newHead')
+                    PsiElement(=)('=')
+                    NEW_EXPR
+                      PsiElement(new)('new')
+                      NEW_EXPR_TYPE
+                        IDENT
+                          PsiElement(id)('Node')
+                PsiElement(;)(';')
+              EXPR_STMT
+                ACC_EXPR
+                  VAR_EXPR
+                    IDENT
+                      PsiElement(id)('newHead')
+                  PsiElement(.)('.')
+                  APP_EXPR
+                    IDENT
+                      PsiElement(id)('setElem')
+                    PsiElement(()('(')
+                    EXPR_VEC
+                      VAR_EXPR
+                        IDENT
+                          PsiElement(id)('c')
+                    PsiElement())(')')
+                PsiElement(;)(';')
+              EXPR_STMT
+                ACC_EXPR
+                  VAR_EXPR
+                    IDENT
+                      PsiElement(id)('newHead')
+                  PsiElement(.)('.')
+                  APP_EXPR
+                    IDENT
+                      PsiElement(id)('setNext')
+                    PsiElement(()('(')
+                    EXPR_VEC
+                      VAR_EXPR
+                        IDENT
+                          PsiElement(id)('head')
+                    PsiElement())(')')
+                PsiElement(;)(';')
+              ASS_STMT
+                IDENT
+                  PsiElement(id)('head')
+                PsiElement(=)('=')
+                VAR_EXPR
+                  IDENT
+                    PsiElement(id)('newHead')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              PsiElement(boolean)('boolean')
+            IDENT
+              PsiElement(id)('isEmpty')
+            PsiElement(()('(')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              RET_STMT
+                PsiElement(return)('return')
+                CMP_EXPR
+                  VAR_EXPR
+                    IDENT
+                      PsiElement(id)('head')
+                  PsiElement(==)('==')
+                  CAST_EXPR
+                    PsiElement(()('(')
+                    VAR_EXPR
+                      IDENT
+                        PsiElement(id)('Node')
+                    PsiElement())(')')
+                    LIT_EXPR
+                      PsiElement(null)('null')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              IDENT
+                PsiElement(id)('Shape')
+            IDENT
+              PsiElement(id)('top')
+            PsiElement(()('(')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              RET_STMT
+                PsiElement(return)('return')
+                ACC_EXPR
+                  VAR_EXPR
+                    IDENT
+                      PsiElement(id)('head')
+                  PsiElement(.)('.')
+                  APP_EXPR
+                    IDENT
+                      PsiElement(id)('getElem')
+                    PsiElement(()('(')
+                    PsiElement())(')')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              PsiElement(void)('void')
+            IDENT
+              PsiElement(id)('pop')
+            PsiElement(()('(')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              ASS_STMT
+                IDENT
+                  PsiElement(id)('head')
+                PsiElement(=)('=')
+                ACC_EXPR
+                  VAR_EXPR
+                    IDENT
+                      PsiElement(id)('head')
+                  PsiElement(.)('.')
+                  APP_EXPR
+                    IDENT
+                      PsiElement(id)('getNext')
+                    PsiElement(()('(')
+                    PsiElement())(')')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      PsiElement(})('}')
   TOP_DEF
-    FN_DEF
-      TYPE
-        IDENT
-          PsiElement(id)('Node')
+    CLS_DEF
+      PsiElement(class)('class')
       IDENT
-        PsiElement(id)('getNext')
-      PsiElement(()('(')
-      PsiElement())(')')
-      BLOCK
-        PsiElement({)('{')
-        RET_STMT
-          PsiElement(return)('return')
-          VAR_EXPR
+        PsiElement(id)('Shape')
+      PsiElement({)('{')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              PsiElement(void)('void')
             IDENT
-              PsiElement(id)('next')
-          PsiElement(;)(';')
-        PsiElement(})('}')
-  PsiErrorElement:<top def> expected, got '}'
-    PsiElement(})('}')
+              PsiElement(id)('tell')
+            PsiElement(()('(')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              EXPR_STMT
+                APP_EXPR
+                  IDENT
+                    PsiElement(id)('printString')
+                  PsiElement(()('(')
+                  EXPR_VEC
+                    LIT_EXPR
+                      PsiElement(string)('"I'm a shape"')
+                  PsiElement())(')')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      CLS_ELEM
+        CLS_METHOD
+          FN_DEF
+            TYPE
+              PsiElement(void)('void')
+            IDENT
+              PsiElement(id)('tellAgain')
+            PsiElement(()('(')
+            PsiElement())(')')
+            BLOCK
+              PsiElement({)('{')
+              EXPR_STMT
+                APP_EXPR
+                  IDENT
+                    PsiElement(id)('printString')
+                  PsiElement(()('(')
+                  EXPR_VEC
+                    LIT_EXPR
+                      PsiElement(string)('"I'm just a shape"')
+                  PsiElement())(')')
+                PsiElement(;)(';')
+              PsiElement(})('}')
+      PsiElement(})('}')
+  TOP_DEF
+    CLS_DEF
+      PsiElement(class)('class')
+      IDENT
+        PsiElement(id)('Rectangle')
+      PsiErrorElement:'{' expected, got 'extends'
+        <empty list>
+  PsiElement(id)('extends')
+  PsiElement(id)('Shape')
+  PsiElement({)('{')
   PsiElement(DUMMY_BLOCK)
     PsiElement(DUMMY_BLOCK)
-      PsiElement(class)('class')
-      PsiElement(id)('Stack')
-      PsiElement({)('{')
-      PsiElement(id)('Node')
-      PsiElement(id)('head')
-      PsiElement(;)(';')
-      PsiElement(void)('void')
-      PsiElement(id)('push')
-      PsiElement(()('(')
-      PsiElement(id)('Shape')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(id)('c')
-      PsiElement())(')')
-      PsiElement({)('{')
-      PsiElement(id)('Node')
-      PsiElement(id)('newHead')
-      PsiElement(=)('=')
-      PsiElement(new)('new')
-      PsiElement(id)('Node')
-      PsiElement(;)(';')
-      PsiElement(id)('newHead')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(.)('.')
-      PsiElement(id)('setElem')
-      PsiElement(()('(')
-      PsiElement(id)('c')
-      PsiElement())(')')
-      PsiElement(;)(';')
-      PsiElement(id)('newHead')
-      PsiElement(.)('.')
-      PsiElement(id)('setNext')
-      PsiElement(()('(')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(id)('head')
-      PsiElement())(')')
-      PsiElement(;)(';')
-      PsiElement(id)('head')
-      PsiElement(=)('=')
-      PsiElement(id)('newHead')
-      PsiElement(;)(';')
-      PsiElement(})('}')
-      PsiElement(boolean)('boolean')
-      PsiElement(id)('isEmpty')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(()('(')
-      PsiElement())(')')
-      PsiElement({)('{')
-      PsiElement(return)('return')
-      PsiElement(id)('head')
-      PsiElement(==)('==')
-      PsiElement(()('(')
-      PsiElement(id)('Node')
-      PsiElement())(')')
-      PsiElement(null)('null')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(;)(';')
-      PsiElement(})('}')
-      PsiElement(id)('Shape')
-      PsiElement(id)('top')
-      PsiElement(()('(')
-      PsiElement())(')')
-      PsiElement({)('{')
-      PsiElement(return)('return')
-      PsiElement(id)('head')
-      PsiElement(.)('.')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(id)('getElem')
-      PsiElement(()('(')
-      PsiElement())(')')
-      PsiElement(;)(';')
-      PsiElement(})('}')
-      PsiElement(void)('void')
-      PsiElement(id)('pop')
-      PsiElement(()('(')
-      PsiElement())(')')
-      PsiElement({)('{')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(id)('head')
-      PsiElement(=)('=')
-      PsiElement(id)('head')
-      PsiElement(.)('.')
-      PsiElement(id)('getNext')
-      PsiElement(()('(')
-      PsiElement())(')')
-      PsiElement(;)(';')
-      PsiElement(})('}')
-      PsiElement(})('}')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(class)('class')
-      PsiElement(id)('Shape')
-      PsiElement({)('{')
-      PsiElement(void)('void')
-      PsiElement(id)('tell')
-      PsiElement(()('(')
-      PsiElement())(')')
-      PsiElement({)('{')
-      PsiElement(id)('printString')
-      PsiElement(()('(')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(string)('"I'm a shape"')
-      PsiElement())(')')
-      PsiElement(;)(';')
-      PsiElement(})('}')
-      PsiElement(void)('void')
-      PsiElement(id)('tellAgain')
-      PsiElement(()('(')
-      PsiElement())(')')
-      PsiElement({)('{')
-      PsiElement(id)('printString')
-  PsiElement(DUMMY_BLOCK)
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(()('(')
-      PsiElement(string)('"I'm just a shape"')
-      PsiElement())(')')
-      PsiElement(;)(';')
-      PsiElement(})('}')
-      PsiElement(})('}')
-      PsiElement(class)('class')
-      PsiElement(id)('Rectangle')
-      PsiElement(id)('extends')
-      PsiElement(id)('Shape')
-    PsiElement(DUMMY_BLOCK)
-      PsiElement({)('{')
       PsiElement(void)('void')
       PsiElement(id)('tellAgain')
       PsiElement(()('(')
@@ -245,8 +356,8 @@ Simple File
       PsiElement(()('(')
       PsiElement(string)('"I'm really a rectangle"')
       PsiElement())(')')
-    PsiElement(DUMMY_BLOCK)
       PsiElement(;)(';')
+    PsiElement(DUMMY_BLOCK)
       PsiElement(})('}')
       PsiElement(})('}')
       PsiElement(class)('class')
@@ -256,8 +367,8 @@ Simple File
       PsiElement({)('{')
       PsiElement(void)('void')
       PsiElement(id)('tellAgain')
-    PsiElement(DUMMY_BLOCK)
       PsiElement(()('(')
+    PsiElement(DUMMY_BLOCK)
       PsiElement())(')')
       PsiElement({)('{')
       PsiElement(id)('printString')
@@ -267,8 +378,8 @@ Simple File
       PsiElement(;)(';')
       PsiElement(})('}')
       PsiElement(})('}')
-    PsiElement(DUMMY_BLOCK)
       PsiElement(class)('class')
+    PsiElement(DUMMY_BLOCK)
       PsiElement(id)('Square')
       PsiElement(id)('extends')
       PsiElement(id)('Rectangle')
@@ -278,8 +389,8 @@ Simple File
       PsiElement(()('(')
       PsiElement())(')')
       PsiElement({)('{')
-    PsiElement(DUMMY_BLOCK)
       PsiElement(id)('printString')
+    PsiElement(DUMMY_BLOCK)
       PsiElement(()('(')
       PsiElement(string)('"I'm really a square"')
       PsiElement())(')')
@@ -289,8 +400,8 @@ Simple File
       PsiElement(int)('int')
       PsiElement(id)('main')
       PsiElement(()('(')
-    PsiElement(DUMMY_BLOCK)
       PsiElement())(')')
+    PsiElement(DUMMY_BLOCK)
       PsiElement({)('{')
       PsiElement(id)('Stack')
       PsiElement(id)('stk')
@@ -300,8 +411,8 @@ Simple File
       PsiElement(;)(';')
       PsiElement(id)('Shape')
       PsiElement(id)('s')
-    PsiElement(DUMMY_BLOCK)
       PsiElement(=)('=')
+    PsiElement(DUMMY_BLOCK)
       PsiElement(new)('new')
       PsiElement(id)('Shape')
       PsiElement(;)(';')
@@ -311,8 +422,8 @@ Simple File
       PsiElement(()('(')
       PsiElement(id)('s')
       PsiElement())(')')
-    PsiElement(DUMMY_BLOCK)
       PsiElement(;)(';')
+    PsiElement(DUMMY_BLOCK)
       PsiElement(id)('s')
       PsiElement(=)('=')
       PsiElement(new)('new')
@@ -322,8 +433,8 @@ Simple File
       PsiElement(.)('.')
       PsiElement(id)('push')
       PsiElement(()('(')
-    PsiElement(DUMMY_BLOCK)
       PsiElement(id)('s')
+    PsiElement(DUMMY_BLOCK)
       PsiElement())(')')
       PsiElement(;)(';')
       PsiElement(id)('s')
@@ -333,19 +444,19 @@ Simple File
       PsiElement(;)(';')
       PsiElement(id)('stk')
       PsiElement(.)('.')
+      PsiElement(id)('push')
+    PsiElement(DUMMY_BLOCK)
+      PsiElement(()('(')
+      PsiElement(id)('s')
+      PsiElement())(')')
+      PsiElement(;)(';')
+      PsiElement(id)('s')
+      PsiElement(=)('=')
+      PsiElement(new)('new')
+      PsiElement(id)('Circle')
+      PsiElement(;)(';')
+      PsiElement(id)('stk')
   PsiElement(DUMMY_BLOCK)
-    PsiElement(id)('push')
-    PsiElement(()('(')
-    PsiElement(id)('s')
-    PsiElement())(')')
-    PsiElement(;)(';')
-    PsiElement(id)('s')
-    PsiElement(=)('=')
-    PsiElement(new)('new')
-    PsiElement(id)('Circle')
-    PsiElement(;)(';')
-  PsiElement(DUMMY_BLOCK)
-    PsiElement(id)('stk')
     PsiElement(.)('.')
     PsiElement(id)('push')
     PsiElement(()('(')
@@ -355,8 +466,8 @@ Simple File
     PsiElement(while)('while')
     PsiElement(()('(')
     PsiElement(!)('!')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(id)('stk')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(.)('.')
     PsiElement(id)('isEmpty')
     PsiElement(()('(')
@@ -366,8 +477,8 @@ Simple File
     PsiElement(id)('s')
     PsiElement(=)('=')
     PsiElement(id)('stk')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(.)('.')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(id)('top')
     PsiElement(()('(')
     PsiElement())(')')
@@ -377,8 +488,8 @@ Simple File
     PsiElement(id)('tell')
     PsiElement(()('(')
     PsiElement())(')')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(;)(';')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(id)('s')
     PsiElement(.)('.')
     PsiElement(id)('tellAgain')
@@ -388,7 +499,7 @@ Simple File
     PsiElement(id)('stk')
     PsiElement(.)('.')
     PsiElement(id)('pop')
-  PsiElement(()('(')
+    PsiElement(()('(')
   PsiElement())(')')
   PsiElement(;)(';')
   PsiElement(})('}')
