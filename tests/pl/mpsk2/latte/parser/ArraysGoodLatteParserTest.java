@@ -5,9 +5,12 @@ public class ArraysGoodLatteParserTest extends LatteParserTestBase {
         super("good/arrays");
     }
 
-    public void testArray001() {
-        doTest();
-    }
+    public void testArray001S1() { doTest(); }
+    public void testArray001S2() { doTest(); }
+    public void testArray001S3() { doTest(); }
+    public void testArray001S4() { doTest(); }
+    public void testArray001S5() { doTest(); }
+    public void testArray001S6() { doTest(); }
     public void testArray002() {
         doTest();
     }

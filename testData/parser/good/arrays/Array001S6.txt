@@ -1,0 +1,17 @@
+Latte File
+  TOP_DEF
+    FN_DEF
+      BASIC_TYPE
+        PsiElement(int)('int')
+      IDENT
+        PsiElement(id)('main')
+      PsiElement(()('(')
+      PsiElement())(')')
+      BLOCK
+        PsiElement({)('{')
+        RET_STMT
+          PsiElement(return)('return')
+          LIT_EXPR
+            PsiElement(number)('0')
+          PsiElement(;)(';')
+        PsiElement(})('}')

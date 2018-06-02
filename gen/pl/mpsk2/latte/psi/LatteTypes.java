@@ -38,6 +38,7 @@ public interface LatteTypes {
   IElementType EXPR_STMT = new LatteElementType("EXPR_STMT");
   IElementType EXPR_VEC = new LatteElementType("EXPR_VEC");
   IElementType FN_DEF = new LatteElementType("FN_DEF");
+  IElementType FOR_STMT = new LatteElementType("FOR_STMT");
   IElementType IDENT = new LatteElementType("IDENT");
   IElementType IDENT_TYPE = new LatteElementType("IDENT_TYPE");
   IElementType INCR_STMT = new LatteElementType("INCR_STMT");
@@ -64,6 +65,7 @@ public interface LatteTypes {
   IElementType BLOCK_COMMENT = new LatteTokenType("block_comment");
   IElementType BOOL = new LatteTokenType("boolean");
   IElementType CLS = new LatteTokenType("class");
+  IElementType COLON = new LatteTokenType(":");
   IElementType COMMA = new LatteTokenType(",");
   IElementType DECR = new LatteTokenType("--");
   IElementType DIV = new LatteTokenType("/");
@@ -182,6 +184,9 @@ public interface LatteTypes {
       }
       else if (type == FN_DEF) {
         return new LatteFnDefImpl(node);
+      }
+      else if (type == FOR_STMT) {
+        return new LatteForStmtImpl(node);
       }
       else if (type == IDENT) {
         return new LatteIdentImpl(node);

@@ -74,6 +74,9 @@ public class LatteParser implements PsiParser, LightPsiParser {
     else if (t == FN_DEF) {
       r = FnDef(b, 0);
     }
+    else if (t == FOR_STMT) {
+      r = ForStmt(b, 0);
+    }
     else if (t == IDENT) {
       r = Ident(b, 0);
     }
@@ -118,8 +121,8 @@ public class LatteParser implements PsiParser, LightPsiParser {
     create_token_set_(ARRAY_TYPE, BASIC_TYPE, IDENT_TYPE, NEW_EXPR_TYPE,
       TYPE),
     create_token_set_(ASS_STMT, B_STMT, COND_ELSE_STMT, DECL_STMT,
-      DECR_STMT, EMPTY_STMT, EXPR_STMT, INCR_STMT,
-      RET_STMT, STMT, WHILE_STMT),
+      DECR_STMT, EMPTY_STMT, EXPR_STMT, FOR_STMT,
+      INCR_STMT, RET_STMT, STMT, WHILE_STMT),
     create_token_set_(ACC_EXPR, ADD_EXPR, AND_EXPR, APP_EXPR,
       ARR_ACC_EXPR, CAST_EXPR, CMP_EXPR, EXPR,
       LIT_EXPR, MUL_EXPR, NEG_EXPR, NEW_EXPR,
@@ -184,15 +187,16 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (Ident (DOT Ident)*) ASS Expr SEM
+  // (Ident (DOT Ident)*) (LBRACK Expr RBRACK)? ASS Expr SEM
   public static boolean AssStmt(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "AssStmt")) return false;
     if (!nextTokenIs(b, ID)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, ASS_STMT, null);
     r = AssStmt_0(b, l + 1);
+    r = r && AssStmt_1(b, l + 1);
     r = r && consumeToken(b, ASS);
-    p = r; // pin = 2
+    p = r; // pin = 3
     r = r && report_error_(b, Expr(b, l + 1, -1));
     r = p && consumeToken(b, SEM) && r;
     exit_section_(b, l, m, r, p, null);
@@ -228,6 +232,25 @@ public class LatteParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, DOT);
     r = r && Ident(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // (LBRACK Expr RBRACK)?
+  private static boolean AssStmt_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "AssStmt_1")) return false;
+    AssStmt_1_0(b, l + 1);
+    return true;
+  }
+
+  // LBRACK Expr RBRACK
+  private static boolean AssStmt_1_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "AssStmt_1_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, LBRACK);
+    r = r && Expr(b, l + 1, -1);
+    r = r && consumeToken(b, RBRACK);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -509,6 +532,24 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // FOR LPAREN Type Ident COLON Expr RPAREN Stmt
+  public static boolean ForStmt(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ForStmt")) return false;
+    if (!nextTokenIs(b, FOR)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, FOR, LPAREN);
+    r = r && Type(b, l + 1, -1);
+    r = r && Ident(b, l + 1);
+    r = r && consumeToken(b, COLON);
+    r = r && Expr(b, l + 1, -1);
+    r = r && consumeToken(b, RPAREN);
+    r = r && Stmt(b, l + 1);
+    exit_section_(b, m, FOR_STMT, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // id
   public static boolean Ident(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "Ident")) return false;
@@ -710,6 +751,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
   //     | RetStmt
   //     | CondElseStmt
   //     | WhileStmt
+  //     | ForStmt
   //     | ExprStmt
   public static boolean Stmt(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "Stmt")) return false;
@@ -724,6 +766,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
     if (!r) r = RetStmt(b, l + 1);
     if (!r) r = CondElseStmt(b, l + 1);
     if (!r) r = WhileStmt(b, l + 1);
+    if (!r) r = ForStmt(b, l + 1);
     if (!r) r = ExprStmt(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;

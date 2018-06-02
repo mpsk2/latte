@@ -9,14 +9,20 @@ import pl.mpsk2.latte.psi.expr.LatteExpr;
 
 public interface LatteAssStmt extends LatteStmt {
 
-  @Nullable
-  LatteExpr getExpr();
+  @NotNull
+  List<LatteExpr> getExprList();
 
   @NotNull
   List<LatteIdent> getIdentList();
 
   @NotNull
   PsiElement getAss();
+
+  @Nullable
+  PsiElement getLbrack();
+
+  @Nullable
+  PsiElement getRbrack();
 
   @Nullable
   PsiElement getSem();

@@ -37,6 +37,7 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   {WHITE_SPACE}        { return WHITE_SPACE; }
 
   ";"                  { return SEM; }
+  ":"                  { return COLON; }
   "{"                  { return LBRACE; }
   "["                  { return LBRACK; }
   "("                  { return LPAREN; }

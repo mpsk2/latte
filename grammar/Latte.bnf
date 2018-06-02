@@ -17,6 +17,7 @@
 
     tokens = [
         SEM       = ";"
+        COLON     = ":"
 
         LBRACE    = "{"
         LBRACK    = "["
@@ -111,18 +112,20 @@ Stmt ::=
     | RetStmt
     | CondElseStmt
     | WhileStmt
+    | ForStmt
     | ExprStmt
 
 EmptyStmt ::= SEM
 BStmt ::= Block
 DeclStmt ::= Type ItemVec SEM {pin=2}
-AssStmt ::= (Ident (DOT Ident)*) ASS Expr SEM {pin=2}
+AssStmt ::= (Ident (DOT Ident)*) (LBRACK Expr RBRACK)? ASS Expr SEM {pin=3}
 
 IncrStmt ::= Ident INCR SEM {pin=2}
 DecrStmt ::= Ident DECR SEM {pin=2}
 RetStmt ::= RETURN Expr? SEM {pin=1}
 CondElseStmt ::= IF LPAREN Expr RPAREN Stmt (ELSE Stmt)? {pin=1}
 WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt {pin=1}
+ForStmt ::= FOR LPAREN Type Ident COLON Expr RPAREN Stmt
 ExprStmt ::= Expr SEM {pin=1}
 
 

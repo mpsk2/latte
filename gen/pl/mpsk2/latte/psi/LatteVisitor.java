@@ -117,6 +117,10 @@ public class LatteVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitForStmt(@NotNull LatteForStmt o) {
+    visitStmt(o);
+  }
+
   public void visitIdent(@NotNull LatteIdent o) {
     visitPsiElement(o);
   }
