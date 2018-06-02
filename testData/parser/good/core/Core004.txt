@@ -1,8 +1,8 @@
-Simple File
+Latte File
   PsiComment(block_comment)('/* allow comparing booleans. */')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')

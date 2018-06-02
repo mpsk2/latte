@@ -10,19 +10,37 @@ import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
 import pl.mpsk2.latte.psi.*;
 
-public abstract class LatteTypeImpl extends LatteCompositeElementImpl implements LatteType {
+public class LatteArrayTypeImpl extends LatteTypeImpl implements LatteArrayType {
 
-  public LatteTypeImpl(ASTNode node) {
+  public LatteArrayTypeImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull LatteVisitor visitor) {
-    visitor.visitType(this);
+    visitor.visitArrayType(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof LatteVisitor) accept((LatteVisitor)visitor);
     else super.accept(visitor);
+  }
+
+  @Override
+  @NotNull
+  public LatteType getType() {
+    return findNotNullChildByClass(LatteType.class);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getLbrack() {
+    return findNotNullChildByType(LBRACK);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getRbrack() {
+    return findNotNullChildByType(RBRACK);
   }
 
 }

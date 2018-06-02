@@ -1,7 +1,7 @@
-Simple File
+Latte File
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')
@@ -9,22 +9,28 @@ Simple File
       PsiElement())(')')
       BLOCK
         PsiElement({)('{')
-    PsiErrorElement:';', <expr>, id, if, int, return, while, '{' or '}' expected, got 'int'
-      <empty list>
+        DECL_STMT
+          ARRAY_TYPE
+            BASIC_TYPE
+              PsiElement(int)('int')
+            PsiElement([)('[')
+            PsiElement(])(']')
+          ITEM_VEC
+            ITEM
+              IDENT
+                PsiElement(id)('a')
+              PsiElement(=)('=')
+              NEW_EXPR
+                PsiElement(new)('new')
+                PsiErrorElement:id expected, got 'int'
+                  <empty list>
   PsiElement(int)('int')
   PsiElement([)('[')
+  PsiElement(number)('10')
   PsiElement(DUMMY_BLOCK)
-    PsiElement(])(']')
-    PsiElement(id)('a')
-    PsiElement(=)('=')
-    PsiElement(new)('new')
-    PsiElement(int)('int')
-    PsiElement([)('[')
-    PsiElement(number)('10')
     PsiElement(])(']')
     PsiElement(;)(';')
     PsiElement(int)('int')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(id)('j')
     PsiElement(=)('=')
     PsiElement(number)('0')
@@ -32,10 +38,10 @@ Simple File
     PsiElement(while)('while')
     PsiElement(()('(')
     PsiElement(id)('j')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(<)('<')
     PsiElement(id)('a')
     PsiElement(.)('.')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(id)('length')
     PsiElement())(')')
     PsiElement({)('{')
@@ -43,10 +49,10 @@ Simple File
     PsiElement([)('[')
     PsiElement(id)('j')
     PsiElement(])(']')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(=)('=')
     PsiElement(id)('j')
     PsiElement(;)(';')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(id)('j')
     PsiElement(++)('++')
     PsiElement(;)(';')
@@ -54,10 +60,10 @@ Simple File
     PsiElement(for)('for')
     PsiElement(()('(')
     PsiElement(int)('int')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(id)('x')
     PsiElement(BAD_CHARACTER)(':')
     PsiElement(id)('a')
-  PsiElement(DUMMY_BLOCK)
     PsiElement())(')')
     PsiElement(id)('printInt')
     PsiElement(()('(')
@@ -65,10 +71,10 @@ Simple File
     PsiElement())(')')
     PsiElement(;)(';')
     PsiElement(int)('int')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(id)('x')
     PsiElement(=)('=')
     PsiElement(number)('45')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(;)(';')
     PsiElement(id)('printInt')
     PsiElement(()('(')
@@ -76,6 +82,6 @@ Simple File
     PsiElement())(')')
     PsiElement(;)(';')
     PsiElement(return)('return')
-    PsiElement(number)('0')
-    PsiElement(;)(';')
-    PsiElement(})('}')
+  PsiElement(number)('0')
+  PsiElement(;)(';')
+  PsiElement(})('}')

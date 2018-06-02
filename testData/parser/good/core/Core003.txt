@@ -1,8 +1,8 @@
-Simple File
+Latte File
   PsiComment(line_comment)('// Testing the return checker')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('f')
@@ -29,7 +29,7 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('g')
@@ -56,7 +56,7 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(void)('void')
       IDENT
         PsiElement(id)('p')
@@ -67,7 +67,7 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')

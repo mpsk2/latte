@@ -5,7 +5,7 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface LatteNewExprType extends PsiElement {
+public interface LatteNewExprType extends LatteType {
 
   @NotNull
   LatteIdent getIdent();

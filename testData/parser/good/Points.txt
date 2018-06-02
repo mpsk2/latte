@@ -1,4 +1,4 @@
-Simple File
+Latte File
   TOP_DEF
     CLS_DEF
       PsiElement(class)('class')
@@ -7,14 +7,14 @@ Simple File
       PsiElement({)('{')
       CLS_ELEM
         CLS_FIELD
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('x')
           PsiElement(;)(';')
       CLS_ELEM
         CLS_FIELD
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('y')
@@ -22,20 +22,20 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(void)('void')
             IDENT
               PsiElement(id)('move')
             PsiElement(()('(')
             ARG_VEC
               ARG
-                TYPE
+                BASIC_TYPE
                   PsiElement(int)('int')
                 IDENT
                   PsiElement(id)('dx')
               PsiElement(,)(',')
               ARG
-                TYPE
+                BASIC_TYPE
                   PsiElement(int)('int')
                 IDENT
                   PsiElement(id)('dy')
@@ -72,7 +72,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(int)('int')
             IDENT
               PsiElement(id)('getX')
@@ -90,7 +90,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(int)('int')
             IDENT
               PsiElement(id)('getY')
@@ -117,7 +117,7 @@ Simple File
       PsiElement({)('{')
       CLS_ELEM
         CLS_FIELD
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('z')
@@ -125,14 +125,14 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(void)('void')
             IDENT
               PsiElement(id)('moveZ')
             PsiElement(()('(')
             ARG_VEC
               ARG
-                TYPE
+                BASIC_TYPE
                   PsiElement(int)('int')
                 IDENT
                   PsiElement(id)('dz')
@@ -156,7 +156,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(int)('int')
             IDENT
               PsiElement(id)('getZ')
@@ -183,7 +183,7 @@ Simple File
       PsiElement({)('{')
       CLS_ELEM
         CLS_FIELD
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('w')
@@ -191,14 +191,14 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(void)('void')
             IDENT
               PsiElement(id)('moveW')
             PsiElement(()('(')
             ARG_VEC
               ARG
-                TYPE
+                BASIC_TYPE
                   PsiElement(int)('int')
                 IDENT
                   PsiElement(id)('dw')
@@ -222,7 +222,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(int)('int')
             IDENT
               PsiElement(id)('getW')
@@ -240,7 +240,7 @@ Simple File
       PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')
@@ -249,7 +249,7 @@ Simple File
       BLOCK
         PsiElement({)('{')
         DECL_STMT
-          TYPE
+          IDENT_TYPE
             IDENT
               PsiElement(id)('Point2')
           ITEM_VEC
@@ -264,7 +264,7 @@ Simple File
                     PsiElement(id)('Point3')
           PsiElement(;)(';')
         DECL_STMT
-          TYPE
+          IDENT_TYPE
             IDENT
               PsiElement(id)('Point3')
           ITEM_VEC
@@ -279,7 +279,7 @@ Simple File
                     PsiElement(id)('Point3')
           PsiElement(;)(';')
         DECL_STMT
-          TYPE
+          IDENT_TYPE
             IDENT
               PsiElement(id)('Point4')
           ITEM_VEC

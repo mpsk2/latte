@@ -1,7 +1,7 @@
-Simple File
+Latte File
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')
@@ -50,14 +50,14 @@ Simple File
   PsiComment(line_comment)('// iteracyjnie')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('fact')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('n')
@@ -65,7 +65,7 @@ Simple File
       BLOCK
         PsiElement({)('{')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           ITEM_VEC
             ITEM
@@ -138,14 +138,14 @@ Simple File
   PsiComment(line_comment)('// rekurencyjnie')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('factr')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('n')

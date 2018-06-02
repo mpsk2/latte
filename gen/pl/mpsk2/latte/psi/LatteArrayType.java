@@ -5,6 +5,15 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface LatteType extends PsiElement {
+public interface LatteArrayType extends LatteType {
+
+  @NotNull
+  LatteType getType();
+
+  @NotNull
+  PsiElement getLbrack();
+
+  @NotNull
+  PsiElement getRbrack();
 
 }

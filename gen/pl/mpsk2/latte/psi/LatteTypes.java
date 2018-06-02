@@ -18,7 +18,9 @@ public interface LatteTypes {
   IElementType APP_EXPR = new LatteElementType("APP_EXPR");
   IElementType ARG = new LatteElementType("ARG");
   IElementType ARG_VEC = new LatteElementType("ARG_VEC");
+  IElementType ARRAY_TYPE = new LatteElementType("ARRAY_TYPE");
   IElementType ASS_STMT = new LatteElementType("ASS_STMT");
+  IElementType BASIC_TYPE = new LatteElementType("BASIC_TYPE");
   IElementType BLOCK = new LatteElementType("BLOCK");
   IElementType B_STMT = new LatteElementType("B_STMT");
   IElementType CAST_EXPR = new LatteElementType("CAST_EXPR");
@@ -36,6 +38,7 @@ public interface LatteTypes {
   IElementType EXPR_VEC = new LatteElementType("EXPR_VEC");
   IElementType FN_DEF = new LatteElementType("FN_DEF");
   IElementType IDENT = new LatteElementType("IDENT");
+  IElementType IDENT_TYPE = new LatteElementType("IDENT_TYPE");
   IElementType INCR_STMT = new LatteElementType("INCR_STMT");
   IElementType ITEM = new LatteElementType("ITEM");
   IElementType ITEM_VEC = new LatteElementType("ITEM_VEC");
@@ -122,8 +125,14 @@ public interface LatteTypes {
       else if (type == ARG_VEC) {
         return new LatteArgVecImpl(node);
       }
+      else if (type == ARRAY_TYPE) {
+        return new LatteArrayTypeImpl(node);
+      }
       else if (type == ASS_STMT) {
         return new LatteAssStmtImpl(node);
+      }
+      else if (type == BASIC_TYPE) {
+        return new LatteBasicTypeImpl(node);
       }
       else if (type == BLOCK) {
         return new LatteBlockImpl(node);
@@ -173,6 +182,9 @@ public interface LatteTypes {
       else if (type == IDENT) {
         return new LatteIdentImpl(node);
       }
+      else if (type == IDENT_TYPE) {
+        return new LatteIdentTypeImpl(node);
+      }
       else if (type == INCR_STMT) {
         return new LatteIncrStmtImpl(node);
       }
@@ -211,9 +223,6 @@ public interface LatteTypes {
       }
       else if (type == TOP_DEF) {
         return new LatteTopDefImpl(node);
-      }
-      else if (type == TYPE) {
-        return new LatteTypeImpl(node);
       }
       else if (type == VAR_EXPR) {
         return new LatteVarExprImpl(node);

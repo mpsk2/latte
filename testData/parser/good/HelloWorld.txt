@@ -1,8 +1,8 @@
-Simple File
+Latte File
   PsiComment(line_comment)('// Hello world')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')

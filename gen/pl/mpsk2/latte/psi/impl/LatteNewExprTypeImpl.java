@@ -10,7 +10,7 @@ import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
 import pl.mpsk2.latte.psi.*;
 
-public class LatteNewExprTypeImpl extends LatteCompositeElementImpl implements LatteNewExprType {
+public class LatteNewExprTypeImpl extends LatteTypeImpl implements LatteNewExprType {
 
   public LatteNewExprTypeImpl(ASTNode node) {
     super(node);

@@ -22,7 +22,7 @@ public class LatteFile extends PsiFileBase {
 
     @Override
     public String toString() {
-        return "Simple File";
+        return "Latte File";
     }
 
     @Override

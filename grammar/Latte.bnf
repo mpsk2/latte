@@ -83,6 +83,8 @@
     psiPackage(".*Expr")="pl.mpsk2.latte.psi.expr"
     psiImplPackage(".*Expr")="pl.mpsk2.latte.psi.impl.expr"
 
+    extends(".*Type") = Type
+
     generateTokenAccessors=true
 }
 
@@ -123,7 +125,11 @@ CondElseStmt ::= IF LPAREN Expr RPAREN Stmt (ELSE Stmt)? {pin=1}
 WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt {pin=1}
 ExprStmt ::= Expr SEM {pin=1}
 
-Type ::= INT | STR | BOOL | VOID | Ident
+
+Type ::= BasicType | IdentType | ArrayType
+ArrayType ::= Type LBRACK RBRACK
+IdentType ::= Ident
+BasicType ::= INT | STR | BOOL | VOID
 
 Item ::= Ident (ASS Expr)?
 ItemVec ::= Item (COMMA Item)*

@@ -33,12 +33,20 @@ public class LatteVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitArrayType(@NotNull LatteArrayType o) {
+    visitType(o);
+  }
+
   public void visitAssStmt(@NotNull LatteAssStmt o) {
     visitStmt(o);
   }
 
   public void visitBStmt(@NotNull LatteBStmt o) {
     visitStmt(o);
+  }
+
+  public void visitBasicType(@NotNull LatteBasicType o) {
+    visitType(o);
   }
 
   public void visitBinaryExpr(@NotNull LatteBinaryExpr o) {
@@ -109,6 +117,10 @@ public class LatteVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitIdentType(@NotNull LatteIdentType o) {
+    visitType(o);
+  }
+
   public void visitIncrStmt(@NotNull LatteIncrStmt o) {
     visitStmt(o);
   }
@@ -138,7 +150,7 @@ public class LatteVisitor extends PsiElementVisitor {
   }
 
   public void visitNewExprType(@NotNull LatteNewExprType o) {
-    visitPsiElement(o);
+    visitType(o);
   }
 
   public void visitNotExpr(@NotNull LatteNotExpr o) {

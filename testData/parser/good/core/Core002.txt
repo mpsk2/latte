@@ -1,8 +1,8 @@
-Simple File
+Latte File
   PsiComment(block_comment)('/* void expression as statement */')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')
@@ -25,7 +25,7 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(void)('void')
       IDENT
         PsiElement(id)('foo')

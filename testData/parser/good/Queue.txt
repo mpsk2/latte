@@ -1,4 +1,4 @@
-Simple File
+Latte File
   TOP_DEF
     CLS_DEF
       PsiElement(class)('class')
@@ -7,14 +7,14 @@ Simple File
       PsiElement({)('{')
       CLS_ELEM
         CLS_FIELD
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('elem')
           PsiElement(;)(';')
       CLS_ELEM
         CLS_FIELD
-          TYPE
+          IDENT_TYPE
             IDENT
               PsiElement(id)('Node')
           IDENT
@@ -23,14 +23,14 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(void)('void')
             IDENT
               PsiElement(id)('setElem')
             PsiElement(()('(')
             ARG_VEC
               ARG
-                TYPE
+                BASIC_TYPE
                   PsiElement(int)('int')
                 IDENT
                   PsiElement(id)('e')
@@ -49,14 +49,14 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(void)('void')
             IDENT
               PsiElement(id)('setNext')
             PsiElement(()('(')
             ARG_VEC
               ARG
-                TYPE
+                IDENT_TYPE
                   IDENT
                     PsiElement(id)('Node')
                 IDENT
@@ -76,7 +76,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(int)('int')
             IDENT
               PsiElement(id)('getElem')
@@ -94,7 +94,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            IDENT_TYPE
               IDENT
                 PsiElement(id)('Node')
             IDENT
@@ -119,7 +119,7 @@ Simple File
       PsiElement({)('{')
       CLS_ELEM
         CLS_FIELD
-          TYPE
+          IDENT_TYPE
             IDENT
               PsiElement(id)('Node')
           IDENT
@@ -127,7 +127,7 @@ Simple File
           PsiElement(;)(';')
       CLS_ELEM
         CLS_FIELD
-          TYPE
+          IDENT_TYPE
             IDENT
               PsiElement(id)('Node')
           IDENT
@@ -136,7 +136,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(boolean)('boolean')
             IDENT
               PsiElement(id)('isEmpty')
@@ -164,14 +164,14 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(void)('void')
             IDENT
               PsiElement(id)('insert')
             PsiElement(()('(')
             ARG_VEC
               ARG
-                TYPE
+                BASIC_TYPE
                   PsiElement(int)('int')
                 IDENT
                   PsiElement(id)('x')
@@ -179,7 +179,7 @@ Simple File
             BLOCK
               PsiElement({)('{')
               DECL_STMT
-                TYPE
+                IDENT_TYPE
                   IDENT
                     PsiElement(id)('Node')
                 ITEM_VEC
@@ -260,7 +260,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(int)('int')
             IDENT
               PsiElement(id)('first')
@@ -285,7 +285,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(void)('void')
             IDENT
               PsiElement(id)('rmFirst')
@@ -312,7 +312,7 @@ Simple File
       CLS_ELEM
         CLS_METHOD
           FN_DEF
-            TYPE
+            BASIC_TYPE
               PsiElement(int)('int')
             IDENT
               PsiElement(id)('size')
@@ -321,7 +321,7 @@ Simple File
             BLOCK
               PsiElement({)('{')
               DECL_STMT
-                TYPE
+                IDENT_TYPE
                   IDENT
                     PsiElement(id)('Node')
                 ITEM_VEC
@@ -334,7 +334,7 @@ Simple File
                         PsiElement(id)('front')
                 PsiElement(;)(';')
               DECL_STMT
-                TYPE
+                BASIC_TYPE
                   PsiElement(int)('int')
                 ITEM_VEC
                   ITEM
@@ -395,14 +395,14 @@ Simple File
       PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('f')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('x')
@@ -427,7 +427,7 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')
@@ -436,7 +436,7 @@ Simple File
       BLOCK
         PsiElement({)('{')
         DECL_STMT
-          TYPE
+          IDENT_TYPE
             IDENT
               PsiElement(id)('IntQueue')
           ITEM_VEC

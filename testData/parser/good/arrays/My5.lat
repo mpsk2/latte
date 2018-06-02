@@ -1,0 +1,3 @@
+int [] fun() {
+    return new int[15];
+}

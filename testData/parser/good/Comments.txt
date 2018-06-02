@@ -1,10 +1,10 @@
-Simple File
+Latte File
   PsiComment(line_comment)('# Line comment starting with #')
   PsiComment(line_comment)('// Line comment starting with //')
   PsiComment(block_comment)('/* Multi line comment used as line commnet */\n/* Multi line comment used properly \n\nYES!\n*/')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')

@@ -1,8 +1,8 @@
-Simple File
+Latte File
   PsiComment(line_comment)('// count function parameters as initialized')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')
@@ -34,14 +34,14 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('fac')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('a')
@@ -49,7 +49,7 @@ Simple File
       BLOCK
         PsiElement({)('{')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           ITEM_VEC
             ITEM
@@ -57,7 +57,7 @@ Simple File
                 PsiElement(id)('r')
           PsiElement(;)(';')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           ITEM_VEC
             ITEM

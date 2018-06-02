@@ -1,14 +1,14 @@
-Simple File
+Latte File
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('head')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          IDENT_TYPE
             IDENT
               PsiElement(id)('list')
           IDENT

@@ -5,6 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface LatteType extends PsiElement {
+public interface LatteIdentType extends LatteType {
+
+  @NotNull
+  LatteIdent getIdent();
 
 }

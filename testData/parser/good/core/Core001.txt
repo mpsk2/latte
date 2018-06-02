@@ -1,7 +1,7 @@
-Simple File
+Latte File
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')
@@ -74,7 +74,7 @@ Simple File
             PsiElement())(')')
           PsiElement(;)(';')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(string)('string')
           ITEM_VEC
             ITEM
@@ -86,7 +86,7 @@ Simple File
           BLOCK
             PsiElement({)('{')
             DECL_STMT
-              TYPE
+              BASIC_TYPE
                 PsiElement(int)('int')
               ITEM_VEC
                 ITEM
@@ -97,7 +97,7 @@ Simple File
                     PsiElement(number)('10')
               PsiElement(;)(';')
             DECL_STMT
-              TYPE
+              BASIC_TYPE
                 PsiElement(int)('int')
               ITEM_VEC
                 ITEM
@@ -199,14 +199,14 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('fac')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('a')
@@ -214,7 +214,7 @@ Simple File
       BLOCK
         PsiElement({)('{')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           ITEM_VEC
             ITEM
@@ -222,7 +222,7 @@ Simple File
                 PsiElement(id)('r')
           PsiElement(;)(';')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           ITEM_VEC
             ITEM
@@ -293,14 +293,14 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('rfac')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('n')
@@ -348,14 +348,14 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('mfac')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('n')
@@ -403,14 +403,14 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('nfac')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('n')
@@ -458,14 +458,14 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('ifac')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('n')
@@ -490,20 +490,20 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('ifac2f')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('l')
         PsiElement(,)(',')
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('h')
@@ -546,7 +546,7 @@ Simple File
               PsiElement(number)('1')
             PsiElement(;)(';')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           ITEM_VEC
             ITEM
@@ -611,20 +611,20 @@ Simple File
         PsiElement(})('}')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(string)('string')
       IDENT
         PsiElement(id)('repStr')
       PsiElement(()('(')
       ARG_VEC
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(string)('string')
           IDENT
             PsiElement(id)('s')
         PsiElement(,)(',')
         ARG
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           IDENT
             PsiElement(id)('n')
@@ -632,7 +632,7 @@ Simple File
       BLOCK
         PsiElement({)('{')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(string)('string')
           ITEM_VEC
             ITEM
@@ -643,7 +643,7 @@ Simple File
                 PsiElement(string)('""')
           PsiElement(;)(';')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           ITEM_VEC
             ITEM

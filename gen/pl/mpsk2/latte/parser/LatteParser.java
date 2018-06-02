@@ -99,7 +99,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
       r = TopDef(b, 0);
     }
     else if (t == TYPE) {
-      r = Type(b, 0);
+      r = Type(b, 0, -1);
     }
     else if (t == WHILE_STMT) {
       r = WhileStmt(b, 0);
@@ -115,6 +115,8 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   public static final TokenSet[] EXTENDS_SETS_ = new TokenSet[] {
+    create_token_set_(ARRAY_TYPE, BASIC_TYPE, IDENT_TYPE, NEW_EXPR_TYPE,
+      TYPE),
     create_token_set_(ASS_STMT, B_STMT, COND_ELSE_STMT, DECL_STMT,
       DECR_STMT, EMPTY_STMT, EXPR_STMT, INCR_STMT,
       RET_STMT, STMT, WHILE_STMT),
@@ -141,7 +143,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "Arg")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ARG, "<arg>");
-    r = Type(b, l + 1);
+    r = Type(b, l + 1, -1);
     r = r && Ident(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
@@ -333,7 +335,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "ClsField")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, CLS_FIELD, "<cls field>");
-    r = Type(b, l + 1);
+    r = Type(b, l + 1, -1);
     r = r && Ident(b, l + 1);
     r = r && consumeToken(b, SEM);
     exit_section_(b, l, m, r, false, null);
@@ -406,7 +408,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "DeclStmt")) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, DECL_STMT, "<decl stmt>");
-    r = Type(b, l + 1);
+    r = Type(b, l + 1, -1);
     r = r && ItemVec(b, l + 1);
     p = r; // pin = 2
     r = r && consumeToken(b, SEM);
@@ -489,7 +491,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "FnDef")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, FN_DEF, "<fn def>");
-    r = Type(b, l + 1);
+    r = Type(b, l + 1, -1);
     r = r && Ident(b, l + 1);
     r = r && consumeToken(b, LPAREN);
     r = r && FnDef_3(b, l + 1);
@@ -698,21 +700,6 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // INT | STR | BOOL | VOID | Ident
-  public static boolean Type(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "Type")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TYPE, "<type>");
-    r = consumeToken(b, INT);
-    if (!r) r = consumeToken(b, STR);
-    if (!r) r = consumeToken(b, BOOL);
-    if (!r) r = consumeToken(b, VOID);
-    if (!r) r = Ident(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
   // WHILE LPAREN Expr RPAREN Stmt
   public static boolean WhileStmt(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "WhileStmt")) return false;
@@ -911,6 +898,66 @@ public class LatteParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeTokenSmart(b, FALSE);
     if (!r) r = consumeTokenSmart(b, NULL);
     exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // Expression root: Type
+  // Operator priority table:
+  // 0: ATOM(BasicType)
+  // 1: ATOM(IdentType)
+  // 2: POSTFIX(ArrayType)
+  public static boolean Type(PsiBuilder b, int l, int g) {
+    if (!recursion_guard_(b, l, "Type")) return false;
+    addVariant(b, "<type>");
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, "<type>");
+    r = BasicType(b, l + 1);
+    if (!r) r = IdentType(b, l + 1);
+    p = r;
+    r = r && Type_0(b, l + 1, g);
+    exit_section_(b, l, m, null, r, p, null);
+    return r || p;
+  }
+
+  public static boolean Type_0(PsiBuilder b, int l, int g) {
+    if (!recursion_guard_(b, l, "Type_0")) return false;
+    boolean r = true;
+    while (true) {
+      Marker m = enter_section_(b, l, _LEFT_, null);
+      if (g < 2 && parseTokensSmart(b, 0, LBRACK, RBRACK)) {
+        r = true;
+        exit_section_(b, l, m, ARRAY_TYPE, r, true, null);
+      }
+      else {
+        exit_section_(b, l, m, null, false, false, null);
+        break;
+      }
+    }
+    return r;
+  }
+
+  // INT | STR | BOOL | VOID
+  public static boolean BasicType(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "BasicType")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, BASIC_TYPE, "<basic type>");
+    r = consumeTokenSmart(b, INT);
+    if (!r) r = consumeTokenSmart(b, STR);
+    if (!r) r = consumeTokenSmart(b, BOOL);
+    if (!r) r = consumeTokenSmart(b, VOID);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // Ident
+  public static boolean IdentType(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "IdentType")) return false;
+    if (!nextTokenIsSmart(b, ID)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = Ident(b, l + 1);
+    exit_section_(b, m, IDENT_TYPE, r);
     return r;
   }
 

@@ -1,8 +1,8 @@
-Simple File
+Latte File
   PsiComment(block_comment)('/* parity of positive integers by loop */')
   TOP_DEF
     FN_DEF
-      TYPE
+      BASIC_TYPE
         PsiElement(int)('int')
       IDENT
         PsiElement(id)('main')
@@ -11,7 +11,7 @@ Simple File
       BLOCK
         PsiElement({)('{')
         DECL_STMT
-          TYPE
+          BASIC_TYPE
             PsiElement(int)('int')
           ITEM_VEC
             ITEM

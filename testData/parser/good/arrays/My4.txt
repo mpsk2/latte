@@ -1,0 +1,23 @@
+Latte File
+  TOP_DEF
+    FN_DEF
+      BASIC_TYPE
+        PsiElement(int)('int')
+      IDENT
+        PsiElement(id)('main')
+      PsiElement(()('(')
+      PsiElement())(')')
+      BLOCK
+        PsiElement({)('{')
+        RET_STMT
+          PsiElement(return)('return')
+          VAR_EXPR
+            IDENT
+              PsiElement(id)('b')
+          PsiErrorElement:'!=', '%', '(', '*', '+', '-', '/', ';', <, <=, '==', '>' or '>=' expected, got '['
+            <empty list>
+  PsiElement([)('[')
+  PsiElement(number)('16')
+  PsiElement(])(']')
+  PsiElement(;)(';')
+  PsiElement(})('}')
