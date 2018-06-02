@@ -47,7 +47,7 @@ Simple File
             PsiElement(number)('0')
           PsiElement(;)(';')
         PsiElement(})('}')
-  PsiComment(comment)('// iteracyjnie')
+  PsiComment(line_comment)('// iteracyjnie')
   TOP_DEF
     FN_DEF
       TYPE
@@ -135,7 +135,7 @@ Simple File
               PsiElement(id)('r')
           PsiElement(;)(';')
         PsiElement(})('}')
-  PsiComment(comment)('// rekurencyjnie')
+  PsiComment(line_comment)('// rekurencyjnie')
   TOP_DEF
     FN_DEF
       TYPE

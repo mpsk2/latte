@@ -1,5 +1,4 @@
 Simple File
-  PsiComment(line_comment)('// Hello world')
   TOP_DEF
     FN_DEF
       TYPE
@@ -13,11 +12,18 @@ Simple File
         EXPR_STMT
           APP_EXPR
             IDENT
-              PsiElement(id)('printString')
+              PsiElement(id)('p')
+            PsiElement(()('(')
+            PsiElement())(')')
+          PsiElement(;)(';')
+        EXPR_STMT
+          APP_EXPR
+            IDENT
+              PsiElement(id)('printInt')
             PsiElement(()('(')
             EXPR_VEC
               LIT_EXPR
-                PsiElement(string)('"hello world"')
+                PsiElement(number)('1')
             PsiElement())(')')
           PsiElement(;)(';')
         RET_STMT
@@ -25,4 +31,15 @@ Simple File
           LIT_EXPR
             PsiElement(number)('0')
           PsiElement(;)(';')
+        PsiElement(})('}')
+  TOP_DEF
+    FN_DEF
+      TYPE
+        PsiElement(void)('void')
+      IDENT
+        PsiElement(id)('p')
+      PsiElement(()('(')
+      PsiElement())(')')
+      BLOCK
+        PsiElement({)('{')
         PsiElement(})('}')

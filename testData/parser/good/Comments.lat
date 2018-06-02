@@ -1,0 +1,9 @@
+# Line comment starting with #
+// Line comment starting with //
+/* Multi line comment used as line commnet */
+/* Multi line comment used properly 
+
+YES!
+*/
+
+int main() {}

@@ -1,5 +1,5 @@
 Simple File
-  PsiComment(line_comment)('// Hello world')
+  PsiComment(line_comment)('// declaration and initialization in same statement')
   TOP_DEF
     FN_DEF
       TYPE
@@ -10,14 +10,26 @@ Simple File
       PsiElement())(')')
       BLOCK
         PsiElement({)('{')
+        DECL_STMT
+          TYPE
+            PsiElement(int)('int')
+          ITEM_VEC
+            ITEM
+              IDENT
+                PsiElement(id)('x')
+              PsiElement(=)('=')
+              LIT_EXPR
+                PsiElement(number)('7')
+          PsiElement(;)(';')
         EXPR_STMT
           APP_EXPR
             IDENT
-              PsiElement(id)('printString')
+              PsiElement(id)('printInt')
             PsiElement(()('(')
             EXPR_VEC
-              LIT_EXPR
-                PsiElement(string)('"hello world"')
+              VAR_EXPR
+                IDENT
+                  PsiElement(id)('x')
             PsiElement())(')')
           PsiElement(;)(';')
         RET_STMT

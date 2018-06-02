@@ -1,5 +1,5 @@
 Simple File
-  PsiComment(line_comment)('// Hello world')
+  PsiComment(block_comment)('/* Test pushing -1. */')
   TOP_DEF
     FN_DEF
       TYPE
@@ -13,11 +13,13 @@ Simple File
         EXPR_STMT
           APP_EXPR
             IDENT
-              PsiElement(id)('printString')
+              PsiElement(id)('printInt')
             PsiElement(()('(')
             EXPR_VEC
-              LIT_EXPR
-                PsiElement(string)('"hello world"')
+              NEG_EXPR
+                PsiElement(-)('-')
+                LIT_EXPR
+                  PsiElement(number)('1')
             PsiElement())(')')
           PsiElement(;)(';')
         RET_STMT

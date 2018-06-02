@@ -435,7 +435,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // Item (COMMA Item)?
+  // Item (COMMA Item)*
   public static boolean ItemVec(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ItemVec")) return false;
     if (!nextTokenIs(b, ID)) return false;
@@ -447,10 +447,14 @@ public class LatteParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // (COMMA Item)?
+  // (COMMA Item)*
   private static boolean ItemVec_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ItemVec_1")) return false;
-    ItemVec_1_0(b, l + 1);
+    while (true) {
+      int c = current_position_(b);
+      if (!ItemVec_1_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "ItemVec_1", c)) break;
+    }
     return true;
   }
 

@@ -31,10 +31,4 @@ public class LatteItemVecImpl extends LatteCompositeElementImpl implements Latte
     return LattePsiTreeUtil.getChildrenOfTypeAsList(this, LatteItem.class);
   }
 
-  @Override
-  @Nullable
-  public PsiElement getComma() {
-    return findChildByType(COMMA);
-  }
-
 }

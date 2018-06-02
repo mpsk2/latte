@@ -9,6 +9,7 @@ import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.TokenType;
+import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
 import org.jetbrains.annotations.NotNull;
@@ -16,10 +17,11 @@ import pl.mpsk2.latte.LatteLanguage;
 import pl.mpsk2.latte.lexer.LatteLexerAdapter;
 import pl.mpsk2.latte.psi.LatteFile;
 import pl.mpsk2.latte.psi.LatteTypes;
+import pl.mpsk2.latte.psi.tree.LatteTokenType;
 
 public class LatteParserDefinition implements ParserDefinition {
     public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
-    public static final TokenSet COMMENTS = TokenSet.create(LatteTypes.COMMENT);
+    public static final TokenSet COMMENTS = TokenSet.create(LatteTypes.LINE_COMMENT, LatteTypes.BLOCK_COMMENT);
 
     public static final IFileElementType FILE = new IFileElementType(LatteLanguage.INSTANCE);
 

@@ -50,9 +50,9 @@ public interface LatteTypes {
   IElementType ADD = new LatteTokenType("+");
   IElementType AND = new LatteTokenType("&&");
   IElementType ASS = new LatteTokenType("=");
+  IElementType BLOCK_COMMENT = new LatteTokenType("block_comment");
   IElementType BOOL = new LatteTokenType("boolean");
   IElementType COMMA = new LatteTokenType(",");
-  IElementType COMMENT = new LatteTokenType("comment");
   IElementType DECR = new LatteTokenType("--");
   IElementType DIV = new LatteTokenType("/");
   IElementType ELSE = new LatteTokenType("else");
@@ -68,6 +68,7 @@ public interface LatteTypes {
   IElementType LBRACE = new LatteTokenType("{");
   IElementType LBRACK = new LatteTokenType("[");
   IElementType LEQ = new LatteTokenType("<=");
+  IElementType LINE_COMMENT = new LatteTokenType("line_comment");
   IElementType LPAREN = new LatteTokenType("(");
   IElementType LT = new LatteTokenType("<");
   IElementType MOD = new LatteTokenType("%");

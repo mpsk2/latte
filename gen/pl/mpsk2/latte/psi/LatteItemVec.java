@@ -10,7 +10,4 @@ public interface LatteItemVec extends PsiElement {
   @NotNull
   List<LatteItem> getItemList();
 
-  @Nullable
-  PsiElement getComma();
-
 }

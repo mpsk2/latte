@@ -60,7 +60,8 @@
         FALSE     = "false"
 
         space     = 'regexp:\s+'
-        comment   = 'regexp://.*'
+        line_comment   = 'regexp:(//|#).*'
+        block_comment = 'regexp:/\*(.|\n)*\*/'
         number    = 'regexp:\d+(\.\d*)?'
         id        = 'regexp:\p{Alpha}\w*'
         string    = "regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
@@ -119,7 +120,7 @@ ExprStmt ::= Expr SEM {pin=1}
 Type ::= INT | STR | BOOL | VOID
 
 Item ::= Ident (ASS Expr)?
-ItemVec ::= Item (COMMA Item)?
+ItemVec ::= Item (COMMA Item)*
 
 Expr ::=
       OrExpr
