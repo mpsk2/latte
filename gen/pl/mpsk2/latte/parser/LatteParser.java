@@ -269,7 +269,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CLS Ident LBRACE ClsElem* RBRACE
+  // CLS Ident (EXTENDS Ident)? LBRACE ClsElem* RBRACE
   public static boolean ClsDef(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ClsDef")) return false;
     if (!nextTokenIs(b, CLS)) return false;
@@ -278,20 +278,39 @@ public class LatteParser implements PsiParser, LightPsiParser {
     r = consumeToken(b, CLS);
     p = r; // pin = 1
     r = r && report_error_(b, Ident(b, l + 1));
+    r = p && report_error_(b, ClsDef_2(b, l + 1)) && r;
     r = p && report_error_(b, consumeToken(b, LBRACE)) && r;
-    r = p && report_error_(b, ClsDef_3(b, l + 1)) && r;
+    r = p && report_error_(b, ClsDef_4(b, l + 1)) && r;
     r = p && consumeToken(b, RBRACE) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
   }
 
+  // (EXTENDS Ident)?
+  private static boolean ClsDef_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ClsDef_2")) return false;
+    ClsDef_2_0(b, l + 1);
+    return true;
+  }
+
+  // EXTENDS Ident
+  private static boolean ClsDef_2_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ClsDef_2_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, EXTENDS);
+    r = r && Ident(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
   // ClsElem*
-  private static boolean ClsDef_3(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ClsDef_3")) return false;
+  private static boolean ClsDef_4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ClsDef_4")) return false;
     while (true) {
       int c = current_position_(b);
       if (!ClsElem(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "ClsDef_3", c)) break;
+      if (!empty_element_parsed_guard_(b, "ClsDef_4", c)) break;
     }
     return true;
   }

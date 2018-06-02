@@ -66,6 +66,7 @@ public interface LatteTypes {
   IElementType DOT = new LatteTokenType(".");
   IElementType ELSE = new LatteTokenType("else");
   IElementType EQ = new LatteTokenType("==");
+  IElementType EXTENDS = new LatteTokenType("extends");
   IElementType FALSE = new LatteTokenType("false");
   IElementType FOR = new LatteTokenType("for");
   IElementType GEQ = new LatteTokenType(">=");

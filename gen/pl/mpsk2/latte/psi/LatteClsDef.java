@@ -10,11 +10,14 @@ public interface LatteClsDef extends PsiElement {
   @NotNull
   List<LatteClsElem> getClsElemList();
 
-  @Nullable
-  LatteIdent getIdent();
+  @NotNull
+  List<LatteIdent> getIdentList();
 
   @NotNull
   PsiElement getCls();
+
+  @Nullable
+  PsiElement getExtends();
 
   @Nullable
   PsiElement getLbrace();

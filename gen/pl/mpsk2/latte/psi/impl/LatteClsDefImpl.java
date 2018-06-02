@@ -32,15 +32,21 @@ public class LatteClsDefImpl extends LatteCompositeElementImpl implements LatteC
   }
 
   @Override
-  @Nullable
-  public LatteIdent getIdent() {
-    return findChildByClass(LatteIdent.class);
+  @NotNull
+  public List<LatteIdent> getIdentList() {
+    return LattePsiTreeUtil.getChildrenOfTypeAsList(this, LatteIdent.class);
   }
 
   @Override
   @NotNull
   public PsiElement getCls() {
     return findNotNullChildByType(CLS);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getExtends() {
+    return findChildByType(EXTENDS);
   }
 
   @Override

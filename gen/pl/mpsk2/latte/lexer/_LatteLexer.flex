@@ -74,6 +74,7 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   "true"               { return TRUE; }
   "false"              { return FALSE; }
   "class"              { return CLS; }
+  "extends"            { return EXTENDS; }
   "new"                { return NEW; }
   "null"               { return NULL; }
 

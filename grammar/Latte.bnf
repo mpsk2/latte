@@ -61,6 +61,7 @@
         FALSE     = "false"
 
         CLS       = "class"
+        EXTENDS   = "extends"
         NEW       = "new"
         NULL      = "null"
 
@@ -173,7 +174,7 @@ Ident ::= id
 
 // Extension structs
 
-ClsDef ::= CLS Ident LBRACE ClsElem* RBRACE {pin=1}
+ClsDef ::= CLS Ident (EXTENDS Ident)? LBRACE ClsElem* RBRACE {pin=1}
 ClsElem ::= ClsField | ClsMethod
 ClsField ::= Type Ident SEM
 ClsMethod ::= FnDef
