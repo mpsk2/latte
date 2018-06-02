@@ -60,6 +60,7 @@
         FALSE     = "false"
 
         CLS       = "class"
+        NEW       = "new"
 
         space     = 'regexp:\s+'
         line_comment   = 'regexp:(//|#).*'
@@ -133,6 +134,7 @@ Expr ::=
     | MulExpr
     | NotExpr
     | NegExpr
+    | NewExpr
     | AppExpr
     | ParenExpr
     | VarExpr
@@ -144,17 +146,19 @@ fake BinaryExpr ::= Expr+ {
 
 OrExpr  ::= Expr OR Expr
 AndExpr ::= Expr AND Expr
+CmpExpr ::= Expr CmpOp Expr
 AddExpr ::= Expr AddOp Expr
 MulExpr ::= Expr MulOp Expr
 NotExpr ::= NOT Expr {pin=1}
 NegExpr ::= SUB Expr {pin=1}
+NewExpr ::= NEW NewExprType {pin=1}
 AppExpr ::= Ident LPAREN ExprVec? RPAREN
-CmpExpr ::= Expr CmpOp Expr
 ParenExpr ::= LPAREN Expr RPAREN {pin=1}
 VarExpr ::= Ident
 LitExpr ::= number | string | TRUE | FALSE
 
 ExprVec ::= Expr (COMMA Expr)?
+NewExprType ::= Ident
 
 private AddOp ::= ADD | SUB
 private MulOp ::= MUL | DIV | MOD

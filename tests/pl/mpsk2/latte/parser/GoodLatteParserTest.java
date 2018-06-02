@@ -35,6 +35,13 @@ public class GoodLatteParserTest extends LatteParserTestBase {
     public void testHelloWorld() { doTest(); }
     public void testLinked() { doTest(); }
     public void testList() { doTest(); }
+    public void testList0() { doTest(); }
+    public void testList1() { doTest(); }
+    public void testList2() { doTest(); }
+    public void testList3() { doTest(); }
+    public void testList4() { doTest(); }
+    public void testList5() { doTest(); }
+    public void testList6() { doTest(); }
     public void testPoints() { doTest(); }
     public void testPrintTo10() { doTest(); }
     public void testQueue() { doTest(); }

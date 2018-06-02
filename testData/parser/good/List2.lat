@@ -1,0 +1,4 @@
+
+int head (list xs) {
+  return xs . elem;
+}
