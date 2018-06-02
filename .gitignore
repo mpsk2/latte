@@ -94,16 +94,10 @@ gradle-app.setting
 
 *~
 lib/
-out/
-/build/
 /utils/build/
 
-.gradle
-
-.idea/workspace.xml
 .idea/modules.xml
 .idea/misc.xml
-.idea/gradle.xml
 .idea/compiler.xml
 .idea/shelf/
 .idea/libraries/
@@ -111,5 +105,4 @@ out/
 .idea/*.png
 *.iml
 
-/testData/performance/docker/
-/testData/performance/go/
+gen/pl/mpsk2/latte/lexer/idea-flex.skeleton

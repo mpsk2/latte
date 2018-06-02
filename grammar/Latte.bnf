@@ -1,0 +1,157 @@
+{
+    parserClass = 'pl.mpsk2.latte.parser.LatteParser'
+
+    psiClassPrefix = 'Latte'
+    psiImplClassSuffix = 'Impl'
+    psiPackage = 'pl.mpsk2.latte.psi'
+    psiImplPackage = 'pl.mpsk2.latte.psi.impl'
+    psiImplUtilClass = 'pl.mpsk2.latte.psi.impl.LattePsiImplUtil'
+    parserUtilClass = 'pl.mpsk2.latte.parser.LatteParserUtil'
+
+    elementTypeHolderClass = 'pl.mpsk2.latte.psi.LatteTypes'
+    elementTypeClass = 'pl.mpsk2.latte.psi.tree.LatteElementType'
+    tokenTypeClass = 'pl.mpsk2.latte.psi.tree.LatteTokenType'
+    psiTreeUtilClass = 'pl.mpsk2.latte.psi.util.LattePsiTreeUtil'
+
+    tokens = [
+        SEM       = ";"
+
+        LBRACE    = "{"
+        LBRACK    = "["
+        LPAREN    = "("
+        RBRACE    = "}"
+        RBRACK    = "]"
+        RPAREN    = ")"
+        COMMA     = ","
+
+        INT       = "int"
+        BOOL      = "boolean"
+        STR       = "string"
+        VOID      = "void"
+
+        AND       = "&&"
+        OR        = "||"
+        ADD       = "+"
+        SUB       = "-"
+        MUL       = "*"
+        DIV       = "/"
+        MOD       = "%"
+        LT        = "<"
+        LEQ       = "<="
+        GT        = ">"
+        GEQ       = ">="
+        EQ        = "=="
+        NEQ       = "!="
+        NOT       = "!"
+
+        ASS       = "="
+        INCR      = "++"
+        DECR      = "--"
+
+        RETURN    = "return"
+        IF        = "if"
+        ELSE      = "else"
+        WHILE     = "whiel"
+        FOR       = "for"
+
+        TRUE      = "true"
+        FALSE     = "false"
+
+        space     = 'regexp:\s+'
+        comment   = 'regexp://.*'
+        number    = 'regexp:\d+(\.\d*)?'
+        id        = 'regexp:\p{Alpha}\w*'
+        string    = "regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
+    ]
+
+    extends(".*Stmt") = Stmt
+    psiPackage(".*Stmt") = 'pl.mpsk2.latte.psi.stmt'
+    psiImplPackage(".*Stmt") = 'pl.mpsk2.latte.psi.impl.stmt'
+
+    extends("(Or|And|Cmp|Add|Mul)Expr") = BinaryExpr
+    pin("(Or|And|Cmp|Add|Mul)Expr") = 2
+    extends(".*Expr") = Expr
+    psiPackage(".*Expr")="pl.mpsk2.latte.psi.expr"
+    psiImplPackage(".*Expr")="pl.mpsk2.latte.psi.impl.expr"
+
+    generateTokenAccessors=true
+}
+
+Program ::= TopDef*
+
+TopDef ::=
+    FnDef
+
+FnDef ::= Type Ident LPAREN ArgVec? RPAREN Block
+
+Arg ::= Type Ident
+ArgVec ::= Arg (COMMA Arg)*
+
+Block ::= LBRACE Stmt* RBRACE
+
+Stmt ::=
+      EmptyStmt
+    | BStmt
+    | DeclStmt
+    | AssStmt
+    | IncrStmt
+    | DecrStmt
+    | RetStmt
+    | VRetStmt
+    | CondStmt
+    | CondElseStmt
+    | WhileStmt
+    | ExprStmt
+
+EmptyStmt ::= SEM
+BStmt ::= Block
+DeclStmt ::= Type ItemVec SEM
+AssStmt ::= Ident ASS Expr SEM
+IncrStmt ::= Ident INCR SEM
+DecrStmt ::= Ident DECR SEM
+RetStmt ::= RETURN Expr SEM
+VRetStmt ::= RETURN SEM
+CondStmt ::= IF LPAREN Expr RPAREN Stmt
+CondElseStmt ::= IF LPAREN Expr RPAREN Stmt ELSE Stmt
+WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt
+ExprStmt ::= Expr SEM
+
+Type ::= INT | STR | BOOL | VOID
+
+Item ::= Ident (ASS Expr)?
+ItemVec ::= Item (COMMA Item)?
+
+Expr ::=
+      OrExpr
+    | AndExpr
+    | CmpExpr
+    | AddExpr
+    | MulExpr
+    | NotExpr
+    | NegExpr
+    | AppExpr
+    | VarExpr
+    | LitExpr
+
+fake BinaryExpr ::= Expr+ {
+    methods=[lhs="Expr[0]" rhs="Expr[1]"]
+}
+
+OrExpr  ::= Expr OR Expr
+AndExpr ::= Expr AND Expr
+AddExpr ::= Expr AddOp Expr
+MulExpr ::= Expr MulOp Expr
+NotExpr ::= NOT Expr {pin=1}
+NegExpr ::= SUB Expr {pin=1}
+AppExpr ::= Ident LPAREN ExprVec? RPAREN
+CmpExpr ::= Expr CmpOp Expr
+VarExpr ::= Ident
+LitExpr ::= number | string | TRUE | FALSE
+
+ExprVec ::= Expr (COMMA Expr)?
+
+private AddOp ::= ADD | SUB
+private MulOp ::= MUL | DIV | MOD
+private CmpOp ::= LT | LEQ | GT | GEQ | EQ | NEQ
+
+Ident ::= id
