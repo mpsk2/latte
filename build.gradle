@@ -1,0 +1,55 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'org.jetbrains.intellij' version '0.3.2'
+    id 'java'
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.6.3'
+}
+
+group 'pl.mpsk2'
+version '0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+allprojects {
+    apply plugin: 'idea'
+    apply plugin: 'org.jetbrains.intellij'
+    apply plugin: 'java'
+    apply plugin: 'maven'
+
+    sourceSets {
+        main {
+            java.srcDirs 'main', 'gen'
+            resources.srcDirs 'resources'
+        }
+        test {
+            java.srcDirs 'tests'
+        }
+    }
+}
+
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
