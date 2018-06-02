@@ -170,7 +170,7 @@ VarExpr ::= Ident
 LitExpr ::= number | string | TRUE | FALSE | NULL
 
 ExprVec ::= Expr (COMMA Expr)?
-NewExprType ::= Ident
+NewExprType ::= Ident | (BasicType|Ident) (LBRACK Expr RBRACK)*
 
 private AddOp ::= ADD | SUB
 private MulOp ::= MUL | DIV | MOD

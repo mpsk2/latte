@@ -16,11 +16,12 @@ Latte File
           PsiElement(return)('return')
           NEW_EXPR
             PsiElement(new)('new')
-            PsiErrorElement:id expected, got 'int'
-              <empty list>
-  PsiElement(int)('int')
-  PsiElement([)('[')
-  PsiElement(number)('15')
-  PsiElement(])(']')
-  PsiElement(;)(';')
-  PsiElement(})('}')
+            NEW_EXPR_TYPE
+              BASIC_TYPE
+                PsiElement(int)('int')
+              PsiElement([)('[')
+              LIT_EXPR
+                PsiElement(number)('15')
+              PsiElement(])(']')
+          PsiElement(;)(';')
+        PsiElement(})('}')

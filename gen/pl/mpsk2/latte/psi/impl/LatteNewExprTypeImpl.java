@@ -9,6 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
 import pl.mpsk2.latte.psi.*;
+import pl.mpsk2.latte.psi.expr.LatteExpr;
 
 public class LatteNewExprTypeImpl extends LatteTypeImpl implements LatteNewExprType {
 
@@ -26,9 +27,21 @@ public class LatteNewExprTypeImpl extends LatteTypeImpl implements LatteNewExprT
   }
 
   @Override
+  @Nullable
+  public LatteBasicType getBasicType() {
+    return findChildByClass(LatteBasicType.class);
+  }
+
+  @Override
   @NotNull
+  public List<LatteExpr> getExprList() {
+    return LattePsiTreeUtil.getChildrenOfTypeAsList(this, LatteExpr.class);
+  }
+
+  @Override
+  @Nullable
   public LatteIdent getIdent() {
-    return findNotNullChildByClass(LatteIdent.class);
+    return findChildByClass(LatteIdent.class);
   }
 
 }

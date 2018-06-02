@@ -11,7 +11,7 @@ import static pl.mpsk2.latte.psi.LatteTypes.*;
 import pl.mpsk2.latte.psi.expr.*;
 import pl.mpsk2.latte.psi.LatteVisitor;
 import pl.mpsk2.latte.psi.impl.LattePsiImplUtil;
-import pl.mpsk2.latte.psi.LatteNewExprType;
+import pl.mpsk2.latte.psi.LatteType;
 
 public class LatteNewExprImpl extends LatteExprImpl implements LatteNewExpr {
 
@@ -30,8 +30,8 @@ public class LatteNewExprImpl extends LatteExprImpl implements LatteNewExpr {
 
   @Override
   @Nullable
-  public LatteNewExprType getNewExprType() {
-    return findChildByClass(LatteNewExprType.class);
+  public LatteType getType() {
+    return findChildByClass(LatteType.class);
   }
 
   @Override

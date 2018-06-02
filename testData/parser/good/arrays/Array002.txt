@@ -34,23 +34,35 @@ Latte File
               PsiElement(=)('=')
               NEW_EXPR
                 PsiElement(new)('new')
-                PsiErrorElement:id expected, got 'int'
-                  <empty list>
-  PsiElement(int)('int')
-  PsiElement([)('[')
-  PsiElement(id)('a')
+                NEW_EXPR_TYPE
+                  BASIC_TYPE
+                    PsiElement(int)('int')
+                  PsiElement([)('[')
+                  ACC_EXPR
+                    VAR_EXPR
+                      IDENT
+                        PsiElement(id)('a')
+                    PsiElement(.)('.')
+                    VAR_EXPR
+                      IDENT
+                        PsiElement(id)('length')
+                  PsiElement(])(']')
+          PsiElement(;)(';')
+        DECL_STMT
+          BASIC_TYPE
+            PsiElement(int)('int')
+          ITEM_VEC
+            ITEM
+              IDENT
+                PsiElement(id)('i')
+              PsiElement(=)('=')
+              LIT_EXPR
+                PsiElement(number)('0')
+          PsiElement(;)(';')
+        PsiErrorElement:<stmt> or '}' expected, got 'for'
+          <empty list>
+  PsiElement(for)('for')
   PsiElement(DUMMY_BLOCK)
-    PsiElement(DUMMY_BLOCK)
-      PsiElement(.)('.')
-      PsiElement(id)('length')
-      PsiElement(])(']')
-      PsiElement(;)(';')
-      PsiElement(int)('int')
-      PsiElement(id)('i')
-      PsiElement(=)('=')
-      PsiElement(number)('0')
-      PsiElement(;)(';')
-      PsiElement(for)('for')
     PsiElement(DUMMY_BLOCK)
       PsiElement(()('(')
       PsiElement(int)('int')
@@ -150,7 +162,6 @@ Latte File
       PsiElement(int)('int')
       PsiElement(id)('scalProd')
       PsiElement(()('(')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(DUMMY_BLOCK)
       PsiElement(int)('int')
       PsiElement([)('[')
@@ -162,6 +173,7 @@ Latte File
       PsiElement(])(']')
       PsiElement(id)('b')
       PsiElement())(')')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(DUMMY_BLOCK)
       PsiElement({)('{')
       PsiElement(int)('int')
@@ -261,17 +273,17 @@ Latte File
       PsiElement(;)(';')
       PsiElement(int)('int')
       PsiElement([)('[')
-  PsiElement(DUMMY_BLOCK)
-    PsiElement(])(']')
-    PsiElement(id)('b')
-    PsiElement(=)('=')
-    PsiElement(id)('doubleArray')
-    PsiElement(()('(')
-    PsiElement(id)('a')
-    PsiElement())(')')
-    PsiElement(;)(';')
-    PsiElement(for)('for')
-    PsiElement(()('(')
+    PsiElement(DUMMY_BLOCK)
+      PsiElement(])(']')
+      PsiElement(id)('b')
+      PsiElement(=)('=')
+      PsiElement(id)('doubleArray')
+      PsiElement(()('(')
+      PsiElement(id)('a')
+      PsiElement())(')')
+      PsiElement(;)(';')
+      PsiElement(for)('for')
+      PsiElement(()('(')
   PsiElement(DUMMY_BLOCK)
     PsiElement(int)('int')
     PsiElement(id)('x')

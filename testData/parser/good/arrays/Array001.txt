@@ -22,34 +22,55 @@ Latte File
               PsiElement(=)('=')
               NEW_EXPR
                 PsiElement(new)('new')
-                PsiErrorElement:id expected, got 'int'
+                NEW_EXPR_TYPE
+                  BASIC_TYPE
+                    PsiElement(int)('int')
+                  PsiElement([)('[')
+                  LIT_EXPR
+                    PsiElement(number)('10')
+                  PsiElement(])(']')
+          PsiElement(;)(';')
+        DECL_STMT
+          BASIC_TYPE
+            PsiElement(int)('int')
+          ITEM_VEC
+            ITEM
+              IDENT
+                PsiElement(id)('j')
+              PsiElement(=)('=')
+              LIT_EXPR
+                PsiElement(number)('0')
+          PsiElement(;)(';')
+        WHILE_STMT
+          PsiElement(while)('while')
+          PsiElement(()('(')
+          CMP_EXPR
+            VAR_EXPR
+              IDENT
+                PsiElement(id)('j')
+            PsiElement(<)('<')
+            ACC_EXPR
+              VAR_EXPR
+                IDENT
+                  PsiElement(id)('a')
+              PsiElement(.)('.')
+              VAR_EXPR
+                IDENT
+                  PsiElement(id)('length')
+          PsiElement())(')')
+          B_STMT
+            BLOCK
+              PsiElement({)('{')
+              EXPR_STMT
+                VAR_EXPR
+                  IDENT
+                    PsiElement(id)('a')
+                PsiErrorElement:'!=', '%', '(', '*', '+', '++', '-', '--', '.', '/', ';', <, <=, '=', '==', '>', '>=' or id expected, got '['
                   <empty list>
-  PsiElement(int)('int')
   PsiElement([)('[')
-  PsiElement(number)('10')
+  PsiElement(id)('j')
   PsiElement(DUMMY_BLOCK)
     PsiElement(])(']')
-    PsiElement(;)(';')
-    PsiElement(int)('int')
-    PsiElement(id)('j')
-    PsiElement(=)('=')
-    PsiElement(number)('0')
-    PsiElement(;)(';')
-    PsiElement(while)('while')
-    PsiElement(()('(')
-    PsiElement(id)('j')
-  PsiElement(DUMMY_BLOCK)
-    PsiElement(<)('<')
-    PsiElement(id)('a')
-    PsiElement(.)('.')
-    PsiElement(id)('length')
-    PsiElement())(')')
-    PsiElement({)('{')
-    PsiElement(id)('a')
-    PsiElement([)('[')
-    PsiElement(id)('j')
-    PsiElement(])(']')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(=)('=')
     PsiElement(id)('j')
     PsiElement(;)(';')
@@ -59,8 +80,8 @@ Latte File
     PsiElement(})('}')
     PsiElement(for)('for')
     PsiElement(()('(')
-    PsiElement(int)('int')
   PsiElement(DUMMY_BLOCK)
+    PsiElement(int)('int')
     PsiElement(id)('x')
     PsiElement(BAD_CHARACTER)(':')
     PsiElement(id)('a')
@@ -70,8 +91,8 @@ Latte File
     PsiElement(id)('x')
     PsiElement())(')')
     PsiElement(;)(';')
-    PsiElement(int)('int')
   PsiElement(DUMMY_BLOCK)
+    PsiElement(int)('int')
     PsiElement(id)('x')
     PsiElement(=)('=')
     PsiElement(number)('45')
@@ -81,7 +102,7 @@ Latte File
     PsiElement(id)('x')
     PsiElement())(')')
     PsiElement(;)(';')
-    PsiElement(return)('return')
+  PsiElement(return)('return')
   PsiElement(number)('0')
   PsiElement(;)(';')
   PsiElement(})('}')

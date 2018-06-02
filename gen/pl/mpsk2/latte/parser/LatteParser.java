@@ -612,14 +612,57 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // Ident
+  // Ident | (BasicType|Ident) (LBRACK Expr RBRACK)*
   public static boolean NewExprType(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "NewExprType")) return false;
-    if (!nextTokenIs(b, ID)) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _COLLAPSE_, NEW_EXPR_TYPE, "<new expr type>");
+    r = Ident(b, l + 1);
+    if (!r) r = NewExprType_1(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // (BasicType|Ident) (LBRACK Expr RBRACK)*
+  private static boolean NewExprType_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "NewExprType_1")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = Ident(b, l + 1);
-    exit_section_(b, m, NEW_EXPR_TYPE, r);
+    r = NewExprType_1_0(b, l + 1);
+    r = r && NewExprType_1_1(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // BasicType|Ident
+  private static boolean NewExprType_1_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "NewExprType_1_0")) return false;
+    boolean r;
+    r = BasicType(b, l + 1);
+    if (!r) r = Ident(b, l + 1);
+    return r;
+  }
+
+  // (LBRACK Expr RBRACK)*
+  private static boolean NewExprType_1_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "NewExprType_1_1")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!NewExprType_1_1_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "NewExprType_1_1", c)) break;
+    }
+    return true;
+  }
+
+  // LBRACK Expr RBRACK
+  private static boolean NewExprType_1_1_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "NewExprType_1_1_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, LBRACK);
+    r = r && Expr(b, l + 1, -1);
+    r = r && consumeToken(b, RBRACK);
+    exit_section_(b, m, null, r);
     return r;
   }
 

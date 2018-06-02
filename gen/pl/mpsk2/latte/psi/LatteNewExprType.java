@@ -4,10 +4,17 @@ package pl.mpsk2.latte.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import pl.mpsk2.latte.psi.expr.LatteExpr;
 
 public interface LatteNewExprType extends LatteType {
 
+  @Nullable
+  LatteBasicType getBasicType();
+
   @NotNull
+  List<LatteExpr> getExprList();
+
+  @Nullable
   LatteIdent getIdent();
 
 }

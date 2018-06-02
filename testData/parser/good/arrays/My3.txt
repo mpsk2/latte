@@ -30,14 +30,17 @@ Latte File
               PsiElement(=)('=')
               NEW_EXPR
                 PsiElement(new)('new')
-                PsiErrorElement:id expected, got 'int'
-                  <empty list>
-  PsiElement(int)('int')
-  PsiElement([)('[')
-  PsiElement(number)('5')
-  PsiElement(])(']')
-  PsiElement(;)(';')
-  PsiElement(return)('return')
-  PsiElement(number)('0')
-  PsiElement(;)(';')
-  PsiElement(})('}')
+                NEW_EXPR_TYPE
+                  BASIC_TYPE
+                    PsiElement(int)('int')
+                  PsiElement([)('[')
+                  LIT_EXPR
+                    PsiElement(number)('5')
+                  PsiElement(])(']')
+          PsiElement(;)(';')
+        RET_STMT
+          PsiElement(return)('return')
+          LIT_EXPR
+            PsiElement(number)('0')
+          PsiElement(;)(';')
+        PsiElement(})('}')
