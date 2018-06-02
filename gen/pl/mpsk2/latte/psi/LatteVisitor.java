@@ -33,6 +33,10 @@ public class LatteVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitArrAccExpr(@NotNull LatteArrAccExpr o) {
+    visitExpr(o);
+  }
+
   public void visitArrayType(@NotNull LatteArrayType o) {
     visitType(o);
   }

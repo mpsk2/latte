@@ -143,6 +143,7 @@ Expr ::=
     | NotExpr
     | NegExpr
     | NewExpr
+    | ArrAccExpr
     | AccExpr
     | AppExpr
     | CastExpr
@@ -162,6 +163,7 @@ MulExpr ::= Expr MulOp Expr
 NotExpr ::= NOT Expr {pin=1}
 NegExpr ::= SUB Expr {pin=1}
 NewExpr ::= NEW NewExprType {pin=1}
+ArrAccExpr ::= Expr LBRACK Expr RBRACK
 AccExpr ::= Expr DOT Expr {rightAssociative=true}
 AppExpr ::= Ident LPAREN ExprVec? RPAREN
 CastExpr ::= LPAREN Expr RPAREN Expr

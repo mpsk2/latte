@@ -62,16 +62,19 @@ Latte File
             BLOCK
               PsiElement({)('{')
               EXPR_STMT
-                VAR_EXPR
-                  IDENT
-                    PsiElement(id)('a')
-                PsiErrorElement:'!=', '%', '(', '*', '+', '++', '-', '--', '.', '/', ';', <, <=, '=', '==', '>', '>=' or id expected, got '['
+                ARR_ACC_EXPR
+                  VAR_EXPR
+                    IDENT
+                      PsiElement(id)('a')
+                  PsiElement([)('[')
+                  VAR_EXPR
+                    IDENT
+                      PsiElement(id)('j')
+                  PsiElement(])(']')
+                PsiErrorElement:'!=', '%', '*', '+', '-', '/', ';', <, <=, '==', '>' or '>=' expected, got '='
                   <empty list>
-  PsiElement([)('[')
-  PsiElement(id)('j')
+  PsiElement(=)('=')
   PsiElement(DUMMY_BLOCK)
-    PsiElement(])(']')
-    PsiElement(=)('=')
     PsiElement(id)('j')
     PsiElement(;)(';')
     PsiElement(id)('j')
@@ -80,9 +83,9 @@ Latte File
     PsiElement(})('}')
     PsiElement(for)('for')
     PsiElement(()('(')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(int)('int')
     PsiElement(id)('x')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(BAD_CHARACTER)(':')
     PsiElement(id)('a')
     PsiElement())(')')
@@ -91,9 +94,9 @@ Latte File
     PsiElement(id)('x')
     PsiElement())(')')
     PsiElement(;)(';')
-  PsiElement(DUMMY_BLOCK)
     PsiElement(int)('int')
     PsiElement(id)('x')
+  PsiElement(DUMMY_BLOCK)
     PsiElement(=)('=')
     PsiElement(number)('45')
     PsiElement(;)(';')
@@ -102,7 +105,7 @@ Latte File
     PsiElement(id)('x')
     PsiElement())(')')
     PsiElement(;)(';')
-  PsiElement(return)('return')
-  PsiElement(number)('0')
+    PsiElement(return)('return')
+    PsiElement(number)('0')
   PsiElement(;)(';')
   PsiElement(})('}')

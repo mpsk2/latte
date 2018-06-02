@@ -19,6 +19,7 @@ public interface LatteTypes {
   IElementType ARG = new LatteElementType("ARG");
   IElementType ARG_VEC = new LatteElementType("ARG_VEC");
   IElementType ARRAY_TYPE = new LatteElementType("ARRAY_TYPE");
+  IElementType ARR_ACC_EXPR = new LatteElementType("ARR_ACC_EXPR");
   IElementType ASS_STMT = new LatteElementType("ASS_STMT");
   IElementType BASIC_TYPE = new LatteElementType("BASIC_TYPE");
   IElementType BLOCK = new LatteElementType("BLOCK");
@@ -127,6 +128,9 @@ public interface LatteTypes {
       }
       else if (type == ARRAY_TYPE) {
         return new LatteArrayTypeImpl(node);
+      }
+      else if (type == ARR_ACC_EXPR) {
+        return new LatteArrAccExprImpl(node);
       }
       else if (type == ASS_STMT) {
         return new LatteAssStmtImpl(node);

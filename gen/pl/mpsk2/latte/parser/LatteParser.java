@@ -121,9 +121,9 @@ public class LatteParser implements PsiParser, LightPsiParser {
       DECR_STMT, EMPTY_STMT, EXPR_STMT, INCR_STMT,
       RET_STMT, STMT, WHILE_STMT),
     create_token_set_(ACC_EXPR, ADD_EXPR, AND_EXPR, APP_EXPR,
-      CAST_EXPR, CMP_EXPR, EXPR, LIT_EXPR,
-      MUL_EXPR, NEG_EXPR, NEW_EXPR, NOT_EXPR,
-      OR_EXPR, PAREN_EXPR, VAR_EXPR),
+      ARR_ACC_EXPR, CAST_EXPR, CMP_EXPR, EXPR,
+      LIT_EXPR, MUL_EXPR, NEG_EXPR, NEW_EXPR,
+      NOT_EXPR, OR_EXPR, PAREN_EXPR, VAR_EXPR),
   };
 
   /* ********************************************************** */
@@ -769,12 +769,13 @@ public class LatteParser implements PsiParser, LightPsiParser {
   // 5: ATOM(NotExpr)
   // 6: ATOM(NegExpr)
   // 7: ATOM(NewExpr)
-  // 8: BINARY(AccExpr)
-  // 9: ATOM(AppExpr)
-  // 10: ATOM(CastExpr)
-  // 11: ATOM(ParenExpr)
-  // 12: ATOM(VarExpr)
-  // 13: ATOM(LitExpr)
+  // 8: BINARY(ArrAccExpr)
+  // 9: BINARY(AccExpr)
+  // 10: ATOM(AppExpr)
+  // 11: ATOM(CastExpr)
+  // 12: ATOM(ParenExpr)
+  // 13: ATOM(VarExpr)
+  // 14: ATOM(LitExpr)
   public static boolean Expr(PsiBuilder b, int l, int g) {
     if (!recursion_guard_(b, l, "Expr")) return false;
     addVariant(b, "<expr>");
@@ -819,8 +820,13 @@ public class LatteParser implements PsiParser, LightPsiParser {
         r = Expr(b, l, 4);
         exit_section_(b, l, m, MUL_EXPR, r, true, null);
       }
-      else if (g < 8 && consumeTokenSmart(b, DOT)) {
-        r = Expr(b, l, 7);
+      else if (g < 8 && consumeTokenSmart(b, LBRACK)) {
+        r = report_error_(b, Expr(b, l, 8));
+        r = consumeToken(b, RBRACK) && r;
+        exit_section_(b, l, m, ARR_ACC_EXPR, r, true, null);
+      }
+      else if (g < 9 && consumeTokenSmart(b, DOT)) {
+        r = Expr(b, l, 8);
         exit_section_(b, l, m, ACC_EXPR, r, true, null);
       }
       else {
