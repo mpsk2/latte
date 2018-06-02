@@ -77,15 +77,17 @@ Latte File
                 PsiElement(id)('r')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('i')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('i')
           PsiElement(=)('=')
           LIT_EXPR
             PsiElement(number)('1')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('r')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('r')
           PsiElement(=)('=')
           LIT_EXPR
             PsiElement(number)('1')
@@ -110,8 +112,9 @@ Latte File
             BLOCK
               PsiElement({)('{')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('r')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('r')
                 PsiElement(=)('=')
                 MUL_EXPR
                   VAR_EXPR

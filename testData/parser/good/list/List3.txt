@@ -33,8 +33,9 @@ Latte File
                 PsiElement(id)('n')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('n')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('n')
           PsiElement(=)('=')
           NEW_EXPR
             PsiElement(new)('new')
@@ -43,22 +44,24 @@ Latte File
                 PsiElement(id)('list')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('n')
-          PsiElement(.)('.')
-          IDENT
-            PsiElement(id)('elem')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('n')
+            PsiElement(.)('.')
+            IDENT
+              PsiElement(id)('elem')
           PsiElement(=)('=')
           VAR_EXPR
             IDENT
               PsiElement(id)('x')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('n')
-          PsiElement(.)('.')
-          IDENT
-            PsiElement(id)('next')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('n')
+            PsiElement(.)('.')
+            IDENT
+              PsiElement(id)('next')
           PsiElement(=)('=')
           VAR_EXPR
             IDENT

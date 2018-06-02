@@ -38,8 +38,9 @@ Latte File
             BLOCK
               PsiElement({)('{')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('elem')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('elem')
                 PsiElement(=)('=')
                 VAR_EXPR
                   IDENT
@@ -65,8 +66,9 @@ Latte File
             BLOCK
               PsiElement({)('{')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('next')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('next')
                 PsiElement(=)('=')
                 VAR_EXPR
                   IDENT
@@ -224,8 +226,9 @@ Latte File
                     PsiElement())(')')
                 PsiElement())(')')
                 ASS_STMT
-                  IDENT
-                    PsiElement(id)('front')
+                  IDENT_VEC
+                    IDENT
+                      PsiElement(id)('front')
                   PsiElement(=)('=')
                   VAR_EXPR
                     IDENT
@@ -249,8 +252,9 @@ Latte File
                       PsiElement())(')')
                   PsiElement(;)(';')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('rear')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('rear')
                 PsiElement(=)('=')
                 VAR_EXPR
                   IDENT
@@ -294,8 +298,9 @@ Latte File
             BLOCK
               PsiElement({)('{')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('front')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('front')
                 PsiElement(=)('=')
                 ACC_EXPR
                   VAR_EXPR
@@ -365,8 +370,9 @@ Latte File
                   BLOCK
                     PsiElement({)('{')
                     ASS_STMT
-                      IDENT
-                        PsiElement(id)('n')
+                      IDENT_VEC
+                        IDENT
+                          PsiElement(id)('n')
                       PsiElement(=)('=')
                       ACC_EXPR
                         VAR_EXPR

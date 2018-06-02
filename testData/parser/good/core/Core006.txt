@@ -23,15 +23,17 @@ Latte File
                 PsiElement(id)('y')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('x')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('x')
           PsiElement(=)('=')
           LIT_EXPR
             PsiElement(number)('45')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('y')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('y')
           PsiElement(=)('=')
           NEG_EXPR
             PsiElement(-)('-')

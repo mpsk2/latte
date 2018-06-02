@@ -29,6 +29,9 @@ public class LatteParser implements PsiParser, LightPsiParser {
     else if (t == ARG_VEC) {
       r = ArgVec(b, 0);
     }
+    else if (t == ARRAY_ACC) {
+      r = ArrayAcc(b, 0);
+    }
     else if (t == ASS_STMT) {
       r = AssStmt(b, 0);
     }
@@ -79,6 +82,9 @@ public class LatteParser implements PsiParser, LightPsiParser {
     }
     else if (t == IDENT) {
       r = Ident(b, 0);
+    }
+    else if (t == IDENT_VEC) {
+      r = IdentVec(b, 0);
     }
     else if (t == INCR_STMT) {
       r = IncrStmt(b, 0);
@@ -187,13 +193,27 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (Ident (DOT Ident)*) (LBRACK Expr RBRACK)? ASS Expr SEM
+  // LBRACK Expr RBRACK
+  public static boolean ArrayAcc(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ArrayAcc")) return false;
+    if (!nextTokenIs(b, LBRACK)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, LBRACK);
+    r = r && Expr(b, l + 1, -1);
+    r = r && consumeToken(b, RBRACK);
+    exit_section_(b, m, ARRAY_ACC, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // IdentVec ArrayAcc? ASS Expr SEM
   public static boolean AssStmt(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "AssStmt")) return false;
     if (!nextTokenIs(b, ID)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, ASS_STMT, null);
-    r = AssStmt_0(b, l + 1);
+    r = IdentVec(b, l + 1);
     r = r && AssStmt_1(b, l + 1);
     r = r && consumeToken(b, ASS);
     p = r; // pin = 3
@@ -203,56 +223,11 @@ public class LatteParser implements PsiParser, LightPsiParser {
     return r || p;
   }
 
-  // Ident (DOT Ident)*
-  private static boolean AssStmt_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "AssStmt_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = Ident(b, l + 1);
-    r = r && AssStmt_0_1(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // (DOT Ident)*
-  private static boolean AssStmt_0_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "AssStmt_0_1")) return false;
-    while (true) {
-      int c = current_position_(b);
-      if (!AssStmt_0_1_0(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "AssStmt_0_1", c)) break;
-    }
-    return true;
-  }
-
-  // DOT Ident
-  private static boolean AssStmt_0_1_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "AssStmt_0_1_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, DOT);
-    r = r && Ident(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // (LBRACK Expr RBRACK)?
+  // ArrayAcc?
   private static boolean AssStmt_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "AssStmt_1")) return false;
-    AssStmt_1_0(b, l + 1);
+    ArrayAcc(b, l + 1);
     return true;
-  }
-
-  // LBRACK Expr RBRACK
-  private static boolean AssStmt_1_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "AssStmt_1_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, LBRACK);
-    r = r && Expr(b, l + 1, -1);
-    r = r && consumeToken(b, RBRACK);
-    exit_section_(b, m, null, r);
-    return r;
   }
 
   /* ********************************************************** */
@@ -562,6 +537,41 @@ public class LatteParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // Ident (DOT Ident)*
+  public static boolean IdentVec(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "IdentVec")) return false;
+    if (!nextTokenIs(b, ID)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = Ident(b, l + 1);
+    r = r && IdentVec_1(b, l + 1);
+    exit_section_(b, m, IDENT_VEC, r);
+    return r;
+  }
+
+  // (DOT Ident)*
+  private static boolean IdentVec_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "IdentVec_1")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!IdentVec_1_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "IdentVec_1", c)) break;
+    }
+    return true;
+  }
+
+  // DOT Ident
+  private static boolean IdentVec_1_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "IdentVec_1_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, DOT);
+    r = r && Ident(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // Ident INCR SEM
   public static boolean IncrStmt(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "IncrStmt")) return false;
@@ -812,7 +822,7 @@ public class LatteParser implements PsiParser, LightPsiParser {
   // 5: ATOM(NotExpr)
   // 6: ATOM(NegExpr)
   // 7: ATOM(NewExpr)
-  // 8: BINARY(ArrAccExpr)
+  // 8: POSTFIX(ArrAccExpr)
   // 9: BINARY(AccExpr)
   // 10: ATOM(AppExpr)
   // 11: ATOM(CastExpr)
@@ -863,9 +873,8 @@ public class LatteParser implements PsiParser, LightPsiParser {
         r = Expr(b, l, 4);
         exit_section_(b, l, m, MUL_EXPR, r, true, null);
       }
-      else if (g < 8 && consumeTokenSmart(b, LBRACK)) {
-        r = report_error_(b, Expr(b, l, 8));
-        r = consumeToken(b, RBRACK) && r;
+      else if (g < 8 && ArrayAcc(b, l + 1)) {
+        r = true;
         exit_section_(b, l, m, ARR_ACC_EXPR, r, true, null);
       }
       else if (g < 9 && consumeTokenSmart(b, DOT)) {

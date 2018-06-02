@@ -118,8 +118,7 @@ Stmt ::=
 EmptyStmt ::= SEM
 BStmt ::= Block
 DeclStmt ::= Type ItemVec SEM {pin=2}
-AssStmt ::= (Ident (DOT Ident)*) (LBRACK Expr RBRACK)? ASS Expr SEM {pin=3}
-
+AssStmt ::= IdentVec ArrayAcc? ASS Expr SEM {pin=3}
 IncrStmt ::= Ident INCR SEM {pin=2}
 DecrStmt ::= Ident DECR SEM {pin=2}
 RetStmt ::= RETURN Expr? SEM {pin=1}
@@ -128,6 +127,8 @@ WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt {pin=1}
 ForStmt ::= FOR LPAREN Type Ident COLON Expr RPAREN Stmt
 ExprStmt ::= Expr SEM {pin=1}
 
+IdentVec ::= Ident (DOT Ident)*
+ArrayAcc ::= LBRACK Expr RBRACK
 
 Type ::= BasicType | IdentType | ArrayType
 ArrayType ::= Type LBRACK RBRACK
@@ -166,7 +167,7 @@ MulExpr ::= Expr MulOp Expr
 NotExpr ::= NOT Expr {pin=1}
 NegExpr ::= SUB Expr {pin=1}
 NewExpr ::= NEW NewExprType {pin=1}
-ArrAccExpr ::= Expr LBRACK Expr RBRACK
+ArrAccExpr ::= Expr ArrayAcc
 AccExpr ::= Expr DOT Expr {rightAssociative=true}
 AppExpr ::= Ident LPAREN ExprVec? RPAREN
 CastExpr ::= LPAREN Expr RPAREN Expr

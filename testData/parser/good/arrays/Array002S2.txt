@@ -70,8 +70,9 @@ Latte File
             BLOCK
               PsiElement({)('{')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('res')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('res')
                 PsiElement(=)('=')
                 ADD_EXPR
                   VAR_EXPR
@@ -83,21 +84,23 @@ Latte File
                       VAR_EXPR
                         IDENT
                           PsiElement(id)('a')
-                      PsiElement([)('[')
-                      VAR_EXPR
-                        IDENT
-                          PsiElement(id)('i')
-                      PsiElement(])(']')
+                      ARRAY_ACC
+                        PsiElement([)('[')
+                        VAR_EXPR
+                          IDENT
+                            PsiElement(id)('i')
+                        PsiElement(])(']')
                     PsiElement(*)('*')
                     ARR_ACC_EXPR
                       VAR_EXPR
                         IDENT
                           PsiElement(id)('b')
-                      PsiElement([)('[')
-                      VAR_EXPR
-                        IDENT
-                          PsiElement(id)('i')
-                      PsiElement(])(']')
+                      ARRAY_ACC
+                        PsiElement([)('[')
+                        VAR_EXPR
+                          IDENT
+                            PsiElement(id)('i')
+                        PsiElement(])(']')
                 PsiElement(;)(';')
               INCR_STMT
                 IDENT

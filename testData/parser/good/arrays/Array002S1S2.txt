@@ -18,35 +18,6 @@ Latte File
       PsiElement())(')')
       BLOCK
         PsiElement({)('{')
-        DECL_STMT
-          BASIC_TYPE
-            PsiElement(int)('int')
-          ITEM_VEC
-            ITEM
-              IDENT
-                PsiElement(id)('x')
-              PsiElement(=)('=')
-              ARR_ACC_EXPR
-                VAR_EXPR
-                  IDENT
-                    PsiElement(id)('a')
-                ARRAY_ACC
-                  PsiElement([)('[')
-                  LIT_EXPR
-                    PsiElement(number)('0')
-                  PsiElement(])(']')
-          PsiElement(;)(';')
-        DECL_STMT
-          BASIC_TYPE
-            PsiElement(int)('int')
-          ITEM_VEC
-            ITEM
-              IDENT
-                PsiElement(id)('i')
-              PsiElement(=)('=')
-              LIT_EXPR
-                PsiElement(number)('0')
-          PsiElement(;)(';')
         WHILE_STMT
           PsiElement(while)('while')
           PsiElement(()('(')
@@ -85,7 +56,7 @@ Latte File
                 ARR_ACC_EXPR
                   VAR_EXPR
                     IDENT
-                      PsiElement(id)('a')
+                      PsiElement(id)('b')
                   ARRAY_ACC
                     PsiElement([)('[')
                     ADD_EXPR
@@ -103,31 +74,4 @@ Latte File
                 PsiElement(++)('++')
                 PsiElement(;)(';')
               PsiElement(})('}')
-        ASS_STMT
-          IDENT_VEC
-            IDENT
-              PsiElement(id)('a')
-          ARRAY_ACC
-            PsiElement([)('[')
-            ADD_EXPR
-              ACC_EXPR
-                VAR_EXPR
-                  IDENT
-                    PsiElement(id)('a')
-                PsiElement(.)('.')
-                VAR_EXPR
-                  IDENT
-                    PsiElement(id)('length')
-              PsiElement(-)('-')
-              LIT_EXPR
-                PsiElement(number)('1')
-            PsiElement(])(']')
-          PsiElement(=)('=')
-          VAR_EXPR
-            IDENT
-              PsiElement(id)('x')
-          PsiElement(;)(';')
-        RET_STMT
-          PsiElement(return)('return')
-          PsiElement(;)(';')
         PsiElement(})('}')

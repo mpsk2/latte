@@ -1,0 +1,3 @@
+void shiftLeft (int [] a){
+  int i = 0 ;
+ }

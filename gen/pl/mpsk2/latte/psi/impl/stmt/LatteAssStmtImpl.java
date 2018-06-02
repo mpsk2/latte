@@ -11,7 +11,8 @@ import static pl.mpsk2.latte.psi.LatteTypes.*;
 import pl.mpsk2.latte.psi.stmt.*;
 import pl.mpsk2.latte.psi.LatteVisitor;
 import pl.mpsk2.latte.psi.impl.LattePsiImplUtil;
-import pl.mpsk2.latte.psi.LatteIdent;
+import pl.mpsk2.latte.psi.LatteArrayAcc;
+import pl.mpsk2.latte.psi.LatteIdentVec;
 import pl.mpsk2.latte.psi.expr.LatteExpr;
 
 public class LatteAssStmtImpl extends LatteStmtImpl implements LatteAssStmt {
@@ -30,33 +31,27 @@ public class LatteAssStmtImpl extends LatteStmtImpl implements LatteAssStmt {
   }
 
   @Override
-  @NotNull
-  public List<LatteExpr> getExprList() {
-    return LattePsiTreeUtil.getChildrenOfTypeAsList(this, LatteExpr.class);
+  @Nullable
+  public LatteArrayAcc getArrayAcc() {
+    return findChildByClass(LatteArrayAcc.class);
+  }
+
+  @Override
+  @Nullable
+  public LatteExpr getExpr() {
+    return findChildByClass(LatteExpr.class);
   }
 
   @Override
   @NotNull
-  public List<LatteIdent> getIdentList() {
-    return LattePsiTreeUtil.getChildrenOfTypeAsList(this, LatteIdent.class);
+  public LatteIdentVec getIdentVec() {
+    return findNotNullChildByClass(LatteIdentVec.class);
   }
 
   @Override
   @NotNull
   public PsiElement getAss() {
     return findNotNullChildByType(ASS);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getLbrack() {
-    return findChildByType(LBRACK);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getRbrack() {
-    return findChildByType(RBRACK);
   }
 
   @Override

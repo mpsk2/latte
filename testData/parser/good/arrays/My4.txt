@@ -15,9 +15,10 @@ Latte File
             VAR_EXPR
               IDENT
                 PsiElement(id)('b')
-            PsiElement([)('[')
-            LIT_EXPR
-              PsiElement(number)('16')
-            PsiElement(])(']')
+            ARRAY_ACC
+              PsiElement([)('[')
+              LIT_EXPR
+                PsiElement(number)('16')
+              PsiElement(])(']')
           PsiElement(;)(';')
         PsiElement(})('}')

@@ -122,8 +122,9 @@ Latte File
                 BLOCK
                   PsiElement({)('{')
                   ASS_STMT
-                    IDENT
-                      PsiElement(id)('r')
+                    IDENT_VEC
+                      IDENT
+                        PsiElement(id)('r')
                     PsiElement(=)('=')
                     MUL_EXPR
                       VAR_EXPR
@@ -230,15 +231,17 @@ Latte File
                 PsiElement(id)('n')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('r')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('r')
           PsiElement(=)('=')
           LIT_EXPR
             PsiElement(number)('1')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('n')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('n')
           PsiElement(=)('=')
           VAR_EXPR
             IDENT
@@ -259,8 +262,9 @@ Latte File
             BLOCK
               PsiElement({)('{')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('r')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('r')
                 PsiElement(=)('=')
                 MUL_EXPR
                   VAR_EXPR
@@ -272,8 +276,9 @@ Latte File
                       PsiElement(id)('n')
                 PsiElement(;)(';')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('n')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('n')
                 PsiElement(=)('=')
                 ADD_EXPR
                   VAR_EXPR
@@ -554,8 +559,9 @@ Latte File
                 PsiElement(id)('m')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('m')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('m')
           PsiElement(=)('=')
           MUL_EXPR
             PAREN_EXPR
@@ -669,8 +675,9 @@ Latte File
             BLOCK
               PsiElement({)('{')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('r')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('r')
                 PsiElement(=)('=')
                 ADD_EXPR
                   VAR_EXPR

@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package pl.mpsk2.latte.psi.impl.expr;
+package pl.mpsk2.latte.psi.impl;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -8,19 +8,16 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import pl.mpsk2.latte.psi.util.LattePsiTreeUtil;
 import static pl.mpsk2.latte.psi.LatteTypes.*;
-import pl.mpsk2.latte.psi.expr.*;
-import pl.mpsk2.latte.psi.LatteVisitor;
-import pl.mpsk2.latte.psi.impl.LattePsiImplUtil;
-import pl.mpsk2.latte.psi.LatteArrayAcc;
+import pl.mpsk2.latte.psi.*;
 
-public class LatteArrAccExprImpl extends LatteExprImpl implements LatteArrAccExpr {
+public class LatteIdentVecImpl extends LatteCompositeElementImpl implements LatteIdentVec {
 
-  public LatteArrAccExprImpl(ASTNode node) {
+  public LatteIdentVecImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull LatteVisitor visitor) {
-    visitor.visitArrAccExpr(this);
+    visitor.visitIdentVec(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -30,14 +27,8 @@ public class LatteArrAccExprImpl extends LatteExprImpl implements LatteArrAccExp
 
   @Override
   @NotNull
-  public LatteArrayAcc getArrayAcc() {
-    return findNotNullChildByClass(LatteArrayAcc.class);
-  }
-
-  @Override
-  @NotNull
-  public LatteExpr getExpr() {
-    return findNotNullChildByClass(LatteExpr.class);
+  public List<LatteIdent> getIdentList() {
+    return LattePsiTreeUtil.getChildrenOfTypeAsList(this, LatteIdent.class);
   }
 
 }

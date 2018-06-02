@@ -10,6 +10,7 @@ public class GoodLatteParserTest extends LatteParserTestBase {
     public void testEmpty() { doTest(); }
     public void testHelloWorld() { doTest(); }
     public void testLinked() { doTest(); }
+    public void testOrder() { doTest(); }
     public void testPoints() { doTest(); }
     public void testPrintTo10() { doTest(); }
     public void testQueue() { doTest(); }

@@ -18,6 +18,7 @@ public interface LatteTypes {
   IElementType APP_EXPR = new LatteElementType("APP_EXPR");
   IElementType ARG = new LatteElementType("ARG");
   IElementType ARG_VEC = new LatteElementType("ARG_VEC");
+  IElementType ARRAY_ACC = new LatteElementType("ARRAY_ACC");
   IElementType ARRAY_TYPE = new LatteElementType("ARRAY_TYPE");
   IElementType ARR_ACC_EXPR = new LatteElementType("ARR_ACC_EXPR");
   IElementType ASS_STMT = new LatteElementType("ASS_STMT");
@@ -41,6 +42,7 @@ public interface LatteTypes {
   IElementType FOR_STMT = new LatteElementType("FOR_STMT");
   IElementType IDENT = new LatteElementType("IDENT");
   IElementType IDENT_TYPE = new LatteElementType("IDENT_TYPE");
+  IElementType IDENT_VEC = new LatteElementType("IDENT_VEC");
   IElementType INCR_STMT = new LatteElementType("INCR_STMT");
   IElementType ITEM = new LatteElementType("ITEM");
   IElementType ITEM_VEC = new LatteElementType("ITEM_VEC");
@@ -128,6 +130,9 @@ public interface LatteTypes {
       else if (type == ARG_VEC) {
         return new LatteArgVecImpl(node);
       }
+      else if (type == ARRAY_ACC) {
+        return new LatteArrayAccImpl(node);
+      }
       else if (type == ARRAY_TYPE) {
         return new LatteArrayTypeImpl(node);
       }
@@ -193,6 +198,9 @@ public interface LatteTypes {
       }
       else if (type == IDENT_TYPE) {
         return new LatteIdentTypeImpl(node);
+      }
+      else if (type == IDENT_VEC) {
+        return new LatteIdentVecImpl(node);
       }
       else if (type == INCR_STMT) {
         return new LatteIncrStmtImpl(node);

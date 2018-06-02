@@ -53,8 +53,9 @@ Latte File
                 PsiElement(++)('++')
                 PsiElement(;)(';')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('xs')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('xs')
                 PsiElement(=)('=')
                 ACC_EXPR
                   VAR_EXPR

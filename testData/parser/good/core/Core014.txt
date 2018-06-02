@@ -27,23 +27,26 @@ Latte File
                 PsiElement(id)('mx')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('lo')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('lo')
           PsiElement(=)('=')
           LIT_EXPR
             PsiElement(number)('1')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('hi')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('hi')
           PsiElement(=)('=')
           VAR_EXPR
             IDENT
               PsiElement(id)('lo')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('mx')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('mx')
           PsiElement(=)('=')
           LIT_EXPR
             PsiElement(number)('5000000')
@@ -86,8 +89,9 @@ Latte File
                   PsiElement())(')')
                 PsiElement(;)(';')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('hi')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('hi')
                 PsiElement(=)('=')
                 ADD_EXPR
                   VAR_EXPR
@@ -99,8 +103,9 @@ Latte File
                       PsiElement(id)('hi')
                 PsiElement(;)(';')
               ASS_STMT
-                IDENT
-                  PsiElement(id)('lo')
+                IDENT_VEC
+                  IDENT
+                    PsiElement(id)('lo')
                 PsiElement(=)('=')
                 ADD_EXPR
                   VAR_EXPR

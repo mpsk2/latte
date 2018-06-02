@@ -1,0 +1,6 @@
+void shiftLeft (int [] a){
+  while (i < a.length - 1){
+    a [i] = b [i + 1];
+    i ++ ;
+  }
+ }

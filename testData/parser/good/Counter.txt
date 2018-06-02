@@ -19,8 +19,9 @@ Latte File
                 PsiElement(id)('c')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('c')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('c')
           PsiElement(=)('=')
           NEW_EXPR
             PsiElement(new)('new')

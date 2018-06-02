@@ -33,8 +33,9 @@ Latte File
               PsiElement(number)('0')
           PsiElement())(')')
           ASS_STMT
-            IDENT
-              PsiElement(id)('y')
+            IDENT_VEC
+              IDENT
+                PsiElement(id)('y')
             PsiElement(=)('=')
             ADD_EXPR
               VAR_EXPR

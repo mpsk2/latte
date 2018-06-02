@@ -27,8 +27,9 @@ Latte File
                 PsiElement(number)('7')
           PsiElement(;)(';')
         ASS_STMT
-          IDENT
-            PsiElement(id)('x')
+          IDENT_VEC
+            IDENT
+              PsiElement(id)('x')
           PsiElement(=)('=')
           NEG_EXPR
             PsiElement(-)('-')
