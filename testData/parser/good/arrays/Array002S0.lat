@@ -1,0 +1,9 @@
+int [] doubleArray (int [] a){
+  int [] res = new int [a . length];
+  int i = 0 ;
+  for (int n : a){
+    res [i] = 2 * n ;
+    i ++ ;
+  }
+  return res ;
+}
