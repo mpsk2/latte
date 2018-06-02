@@ -7,6 +7,9 @@ import com.intellij.psi.PsiElement;
 
 public interface LatteClsDef extends PsiElement {
 
+  @NotNull
+  List<LatteClsElem> getClsElemList();
+
   @Nullable
   LatteIdent getIdent();
 

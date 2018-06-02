@@ -30,9 +30,9 @@ public class LatteDeclStmtImpl extends LatteStmtImpl implements LatteDeclStmt {
   }
 
   @Override
-  @Nullable
+  @NotNull
   public LatteItemVec getItemVec() {
-    return findChildByClass(LatteItemVec.class);
+    return findNotNullChildByClass(LatteItemVec.class);
   }
 
   @Override

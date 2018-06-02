@@ -13,7 +13,7 @@ public interface LatteAssStmt extends LatteStmt {
   LatteExpr getExpr();
 
   @NotNull
-  LatteIdent getIdent();
+  List<LatteIdent> getIdentList();
 
   @NotNull
   PsiElement getAss();

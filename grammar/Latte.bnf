@@ -25,6 +25,7 @@
         RBRACK    = "]"
         RPAREN    = ")"
         COMMA     = ","
+        DOT       = "."
 
         INT       = "int"
         BOOL      = "boolean"
@@ -61,6 +62,7 @@
 
         CLS       = "class"
         NEW       = "new"
+        NULL      = "null"
 
         space     = 'regexp:\s+'
         line_comment   = 'regexp:(//|#).*'
@@ -104,24 +106,23 @@ Stmt ::=
     | IncrStmt
     | DecrStmt
     | RetStmt
-    | VRetStmt
     | CondElseStmt
     | WhileStmt
     | ExprStmt
 
 EmptyStmt ::= SEM
 BStmt ::= Block
-DeclStmt ::= Type ItemVec SEM {pin=1}
-AssStmt ::= Ident ASS Expr SEM {pin=2}
+DeclStmt ::= Type ItemVec SEM {pin=2}
+AssStmt ::= (Ident (DOT Ident)*) ASS Expr SEM {pin=2}
+
 IncrStmt ::= Ident INCR SEM {pin=2}
 DecrStmt ::= Ident DECR SEM {pin=2}
 RetStmt ::= RETURN Expr? SEM {pin=1}
-VRetStmt ::= RETURN SEM
 CondElseStmt ::= IF LPAREN Expr RPAREN Stmt (ELSE Stmt)? {pin=1}
 WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt {pin=1}
 ExprStmt ::= Expr SEM {pin=1}
 
-Type ::= INT | STR | BOOL | VOID
+Type ::= INT | STR | BOOL | VOID | Ident
 
 Item ::= Ident (ASS Expr)?
 ItemVec ::= Item (COMMA Item)*
@@ -135,7 +136,9 @@ Expr ::=
     | NotExpr
     | NegExpr
     | NewExpr
+    | AccExpr
     | AppExpr
+    | CastExpr
     | ParenExpr
     | VarExpr
     | LitExpr
@@ -152,10 +155,12 @@ MulExpr ::= Expr MulOp Expr
 NotExpr ::= NOT Expr {pin=1}
 NegExpr ::= SUB Expr {pin=1}
 NewExpr ::= NEW NewExprType {pin=1}
+AccExpr ::= Expr DOT Expr {rightAssociative=true}
 AppExpr ::= Ident LPAREN ExprVec? RPAREN
+CastExpr ::= LPAREN Expr RPAREN Expr
 ParenExpr ::= LPAREN Expr RPAREN {pin=1}
 VarExpr ::= Ident
-LitExpr ::= number | string | TRUE | FALSE
+LitExpr ::= number | string | TRUE | FALSE | NULL
 
 ExprVec ::= Expr (COMMA Expr)?
 NewExprType ::= Ident
@@ -168,4 +173,5 @@ Ident ::= id
 
 // Extension structs
 
-ClsDef ::= CLS Ident LBRACE RBRACE {pin=1}
+ClsDef ::= CLS Ident LBRACE ClsElem* RBRACE {pin=1}
+ClsElem ::= Type Ident SEM

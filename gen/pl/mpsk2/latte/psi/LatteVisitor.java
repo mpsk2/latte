@@ -9,6 +9,10 @@ import pl.mpsk2.latte.psi.stmt.*;
 
 public class LatteVisitor extends PsiElementVisitor {
 
+  public void visitAccExpr(@NotNull LatteAccExpr o) {
+    visitExpr(o);
+  }
+
   public void visitAddExpr(@NotNull LatteAddExpr o) {
     visitBinaryExpr(o);
   }
@@ -45,7 +49,15 @@ public class LatteVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitCastExpr(@NotNull LatteCastExpr o) {
+    visitExpr(o);
+  }
+
   public void visitClsDef(@NotNull LatteClsDef o) {
+    visitPsiElement(o);
+  }
+
+  public void visitClsElem(@NotNull LatteClsElem o) {
     visitPsiElement(o);
   }
 
@@ -113,6 +125,14 @@ public class LatteVisitor extends PsiElementVisitor {
     visitExpr(o);
   }
 
+  public void visitNewExpr(@NotNull LatteNewExpr o) {
+    visitExpr(o);
+  }
+
+  public void visitNewExprType(@NotNull LatteNewExprType o) {
+    visitPsiElement(o);
+  }
+
   public void visitNotExpr(@NotNull LatteNotExpr o) {
     visitExpr(o);
   }
@@ -139,10 +159,6 @@ public class LatteVisitor extends PsiElementVisitor {
 
   public void visitType(@NotNull LatteType o) {
     visitPsiElement(o);
-  }
-
-  public void visitVRetStmt(@NotNull LatteVRetStmt o) {
-    visitStmt(o);
   }
 
   public void visitVarExpr(@NotNull LatteVarExpr o) {

@@ -9,17 +9,15 @@ Simple File
       PsiElement())(')')
       BLOCK
         PsiElement({)('{')
-        DECL_STMT
-          TYPE
-            PsiElement(int)('int')
-          PsiErrorElement:id expected, got '['
-            <empty list>
+    PsiErrorElement:';', <expr>, id, if, int, return, while, '{' or '}' expected, got 'int'
+      <empty list>
+  PsiElement(int)('int')
   PsiElement([)('[')
   PsiElement(DUMMY_BLOCK)
     PsiElement(])(']')
     PsiElement(id)('a')
     PsiElement(=)('=')
-    PsiElement(id)('new')
+    PsiElement(new)('new')
     PsiElement(int)('int')
     PsiElement([)('[')
     PsiElement(number)('10')
@@ -36,7 +34,7 @@ Simple File
     PsiElement(id)('j')
     PsiElement(<)('<')
     PsiElement(id)('a')
-    PsiElement(BAD_CHARACTER)('.')
+    PsiElement(.)('.')
   PsiElement(DUMMY_BLOCK)
     PsiElement(id)('length')
     PsiElement())(')')

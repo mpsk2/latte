@@ -35,6 +35,12 @@ public class LatteLitExprImpl extends LatteExprImpl implements LatteLitExpr {
 
   @Override
   @Nullable
+  public PsiElement getNull() {
+    return findChildByType(NULL);
+  }
+
+  @Override
+  @Nullable
   public PsiElement getTrue() {
     return findChildByType(TRUE);
   }

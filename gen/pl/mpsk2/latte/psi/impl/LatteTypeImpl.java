@@ -27,6 +27,12 @@ public class LatteTypeImpl extends LatteCompositeElementImpl implements LatteTyp
 
   @Override
   @Nullable
+  public LatteIdent getIdent() {
+    return findChildByClass(LatteIdent.class);
+  }
+
+  @Override
+  @Nullable
   public PsiElement getBool() {
     return findChildByType(BOOL);
   }

@@ -11,6 +11,9 @@ public interface LatteLitExpr extends LatteExpr {
   PsiElement getFalse();
 
   @Nullable
+  PsiElement getNull();
+
+  @Nullable
   PsiElement getTrue();
 
   @Nullable

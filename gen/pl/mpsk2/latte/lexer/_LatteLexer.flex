@@ -44,6 +44,7 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   "]"                  { return RBRACK; }
   ")"                  { return RPAREN; }
   ","                  { return COMMA; }
+  "."                  { return DOT; }
   "int"                { return INT; }
   "boolean"            { return BOOL; }
   "string"             { return STR; }
@@ -73,6 +74,8 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   "true"               { return TRUE; }
   "false"              { return FALSE; }
   "class"              { return CLS; }
+  "new"                { return NEW; }
+  "null"               { return NULL; }
 
   {SPACE}              { return SPACE; }
   {LINE_COMMENT}       { return LINE_COMMENT; }

@@ -12,6 +12,7 @@ import pl.mpsk2.latte.psi.impl.stmt.*;
 
 public interface LatteTypes {
 
+  IElementType ACC_EXPR = new LatteElementType("ACC_EXPR");
   IElementType ADD_EXPR = new LatteElementType("ADD_EXPR");
   IElementType AND_EXPR = new LatteElementType("AND_EXPR");
   IElementType APP_EXPR = new LatteElementType("APP_EXPR");
@@ -20,7 +21,9 @@ public interface LatteTypes {
   IElementType ASS_STMT = new LatteElementType("ASS_STMT");
   IElementType BLOCK = new LatteElementType("BLOCK");
   IElementType B_STMT = new LatteElementType("B_STMT");
+  IElementType CAST_EXPR = new LatteElementType("CAST_EXPR");
   IElementType CLS_DEF = new LatteElementType("CLS_DEF");
+  IElementType CLS_ELEM = new LatteElementType("CLS_ELEM");
   IElementType CMP_EXPR = new LatteElementType("CMP_EXPR");
   IElementType COND_ELSE_STMT = new LatteElementType("COND_ELSE_STMT");
   IElementType DECL_STMT = new LatteElementType("DECL_STMT");
@@ -37,6 +40,8 @@ public interface LatteTypes {
   IElementType LIT_EXPR = new LatteElementType("LIT_EXPR");
   IElementType MUL_EXPR = new LatteElementType("MUL_EXPR");
   IElementType NEG_EXPR = new LatteElementType("NEG_EXPR");
+  IElementType NEW_EXPR = new LatteElementType("NEW_EXPR");
+  IElementType NEW_EXPR_TYPE = new LatteElementType("NEW_EXPR_TYPE");
   IElementType NOT_EXPR = new LatteElementType("NOT_EXPR");
   IElementType OR_EXPR = new LatteElementType("OR_EXPR");
   IElementType PAREN_EXPR = new LatteElementType("PAREN_EXPR");
@@ -45,7 +50,6 @@ public interface LatteTypes {
   IElementType TOP_DEF = new LatteElementType("TOP_DEF");
   IElementType TYPE = new LatteElementType("TYPE");
   IElementType VAR_EXPR = new LatteElementType("VAR_EXPR");
-  IElementType V_RET_STMT = new LatteElementType("V_RET_STMT");
   IElementType WHILE_STMT = new LatteElementType("WHILE_STMT");
 
   IElementType ADD = new LatteTokenType("+");
@@ -57,6 +61,7 @@ public interface LatteTypes {
   IElementType COMMA = new LatteTokenType(",");
   IElementType DECR = new LatteTokenType("--");
   IElementType DIV = new LatteTokenType("/");
+  IElementType DOT = new LatteTokenType(".");
   IElementType ELSE = new LatteTokenType("else");
   IElementType EQ = new LatteTokenType("==");
   IElementType FALSE = new LatteTokenType("false");
@@ -76,7 +81,9 @@ public interface LatteTypes {
   IElementType MOD = new LatteTokenType("%");
   IElementType MUL = new LatteTokenType("*");
   IElementType NEQ = new LatteTokenType("!=");
+  IElementType NEW = new LatteTokenType("new");
   IElementType NOT = new LatteTokenType("!");
+  IElementType NULL = new LatteTokenType("null");
   IElementType NUMBER = new LatteTokenType("number");
   IElementType OR = new LatteTokenType("||");
   IElementType RBRACE = new LatteTokenType("}");
@@ -94,7 +101,10 @@ public interface LatteTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == ADD_EXPR) {
+       if (type == ACC_EXPR) {
+        return new LatteAccExprImpl(node);
+      }
+      else if (type == ADD_EXPR) {
         return new LatteAddExprImpl(node);
       }
       else if (type == AND_EXPR) {
@@ -118,8 +128,14 @@ public interface LatteTypes {
       else if (type == B_STMT) {
         return new LatteBStmtImpl(node);
       }
+      else if (type == CAST_EXPR) {
+        return new LatteCastExprImpl(node);
+      }
       else if (type == CLS_DEF) {
         return new LatteClsDefImpl(node);
+      }
+      else if (type == CLS_ELEM) {
+        return new LatteClsElemImpl(node);
       }
       else if (type == CMP_EXPR) {
         return new LatteCmpExprImpl(node);
@@ -166,6 +182,12 @@ public interface LatteTypes {
       else if (type == NEG_EXPR) {
         return new LatteNegExprImpl(node);
       }
+      else if (type == NEW_EXPR) {
+        return new LatteNewExprImpl(node);
+      }
+      else if (type == NEW_EXPR_TYPE) {
+        return new LatteNewExprTypeImpl(node);
+      }
       else if (type == NOT_EXPR) {
         return new LatteNotExprImpl(node);
       }
@@ -186,9 +208,6 @@ public interface LatteTypes {
       }
       else if (type == VAR_EXPR) {
         return new LatteVarExprImpl(node);
-      }
-      else if (type == V_RET_STMT) {
-        return new LatteVRetStmtImpl(node);
       }
       else if (type == WHILE_STMT) {
         return new LatteWhileStmtImpl(node);
